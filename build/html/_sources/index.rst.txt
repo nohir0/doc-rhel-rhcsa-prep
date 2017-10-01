@@ -1,19 +1,17 @@
-.. Red Hat Enterprise RHCSA | RHCSE Preparation documentation master file, created by
-   sphinx-quickstart on Sun Oct  1 18:08:56 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. Red Hat Enterprise RHCSA Preparation documentation master file, created by Herwig Gans
 
-Red Hat Enterprise RHCSA | RHCSE Preparation
-============================================
+Red Hat Enterprise RHCSA Preparation
+====================================
 
 
 Introduction
 =============
 
-This is a test text::
+1. I prefer documentation in text files
+2. I like to store files offline and online
+3. I need constant backup of my documentation
 
-    print "ls -la"
-    ls -la | grep herwig
+Reason enough to use Sphinx together with github and Red The Docs !
 
 Structured Text Help::
     http://www.sphinx-doc.org/en/stable/rest.html#rst-primer

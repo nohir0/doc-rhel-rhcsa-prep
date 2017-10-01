@@ -1,12 +1,11 @@
 Help
 ====
 
-This is the help page
-
-
+Structured Text Help::
+    http://www.sphinx-doc.org/en/stable/rest.html#rst-primer
 
 
 Further Help
 ^^^^^^^^^^^^
 
-Ask Herwig Gans for further Help
+Ask herwig.gans@gmail.com for help
