@@ -2,12 +2,6 @@
 CentOs Installation
 ====================
 
-
-.. contents::
-   :local:
-   :depth: 1
-
-
 Force Text Setup
 -----------------
 

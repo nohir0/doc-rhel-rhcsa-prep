@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Help &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>yum &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,7 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="prev" title="yum" href="../commands-collection/yum.html"/> 
+        <link rel="up" title="Commands Collection" href="index.html"/>
+        <link rel="next" title="Help" href="../help/Help.html"/>
+        <link rel="prev" title="dd" href="dd.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -100,29 +102,29 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Help</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#further-help">Further Help</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Commands Collection</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dd.html">dd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dd.html#dd-copy">dd copy</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../help/Help.html#further-help">Further Help</a></li>
 </ul>
 </li>
 </ul>
@@ -169,13 +171,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Help</li>
+          <li><a href="index.html">Commands Collection</a> &raquo;</li>
+        
+      <li>yum</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/help/Help.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/commands-collection/yum.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -188,15 +192,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="help">
-<h1>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt>Structured Text Help::</dt>
-<dd><a class="reference external" href="http://www.sphinx-doc.org/en/stable/rest.html#rst-primer">http://www.sphinx-doc.org/en/stable/rest.html#rst-primer</a></dd>
-</dl>
-<div class="section" id="further-help">
-<h2>Further Help<a class="headerlink" href="#further-help" title="Permalink to this headline">¶</a></h2>
-<p>Ask <a class="reference external" href="mailto:herwig&#46;gans&#37;&#52;&#48;gmail&#46;com">herwig<span>&#46;</span>gans<span>&#64;</span>gmail<span>&#46;</span>com</a> for help</p>
+  <div class="section" id="yum">
+<h1>yum<a class="headerlink" href="#yum" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="which-packages-are-installed-within-the-base-package-group">
+<h2>Which packages are installed within the <strong>base</strong> package group?<a class="headerlink" href="#which-packages-are-installed-within-the-base-package-group" title="Permalink to this headline">¶</a></h2>
+<p>Use yum group info:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum group info base</span>
+</pre></div>
+</div>
+<p><strong>Hint:</strong> On the RHEL installation media there is a XML file called <strong>/repodata/*-comps-Server-x86_64.xml</strong> where &lt;grouplist&gt; and &lt;optionlist&gt; shows the belonging package information</p>
 </div>
 </div>
 
@@ -210,8 +214,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../help/Help.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="../commands-collection/yum.html" class="btn btn-neutral" title="yum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="dd.html" class="btn btn-neutral" title="dd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

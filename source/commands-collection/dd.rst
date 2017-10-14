@@ -2,10 +2,6 @@
 dd
 ====
 
-.. contents::
-   :local:
-   :depth: 1
-
 dd copy
 --------
 

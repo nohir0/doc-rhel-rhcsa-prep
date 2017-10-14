@@ -7,3 +7,4 @@ Commands Collection
    :maxdepth: 2
 
    dd
+   yum

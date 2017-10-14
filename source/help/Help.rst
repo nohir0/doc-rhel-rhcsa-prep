@@ -6,6 +6,6 @@ Structured Text Help::
 
 
 Further Help
-^^^^^^^^^^^^
+-------------
 
 Ask herwig.gans@gmail.com for help

@@ -26,12 +26,17 @@ Structured Text Help::
 .. toctree::
    :maxdepth: 2
 
+   networking/index
+
+.. toctree::
+   :maxdepth: 2
+
    commands-collection/index
 
 .. toctree::
    :maxdepth: 2
 
-   help/index
+   help/Help
 
 
 Indices and tables

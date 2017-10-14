@@ -1,10 +1,9 @@
 #####################
-Commands Collection
+Networking
 #####################
 
 
 .. toctree::
    :maxdepth: 2
 
-   dd
-   yum
+   routing
