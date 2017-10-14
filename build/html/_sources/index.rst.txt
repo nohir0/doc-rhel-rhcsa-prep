@@ -15,17 +15,23 @@ Reason enough to use Sphinx together with github and Red The Docs !
 
 Structured Text Help::
     http://www.sphinx-doc.org/en/stable/rest.html#rst-primer
+    http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
 
-Guide
-^^^^^
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
-   installation/Installation
-   help/Help
+   installation/index
 
+.. toctree::
+   :maxdepth: 2
+
+   commands-collection/index
+
+.. toctree::
+   :maxdepth: 2
+
+   help/index
 
 
 Indices and tables
