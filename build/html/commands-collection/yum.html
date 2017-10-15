@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Commands Collection" href="index.html"/>
-        <link rel="next" title="Help" href="../help/Help.html"/>
+        <link rel="next" title="rpm" href="rpm.html"/>
         <link rel="prev" title="dd" href="dd.html"/> 
 
   
@@ -95,6 +95,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../installation/Installation.html">CentOs Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#force-text-setup">Force Text Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
 </ul>
 </li>
 </ul>
@@ -109,6 +114,17 @@
 </ul>
 </li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">vncserver</a></li>
+</ul>
+</li>
+</ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Commands Collection</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="dd.html">dd</a><ul>
@@ -117,8 +133,13 @@
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">yum</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="rpm.html">rpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mount.html">mount</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ssh.html">ssh</a></li>
 </ul>
 </li>
 </ul>
@@ -202,6 +223,111 @@
 </div>
 <p><strong>Hint:</strong> On the RHEL installation media there is a XML file called <strong>/repodata/*-comps-Server-x86_64.xml</strong> where &lt;grouplist&gt; and &lt;optionlist&gt; shows the belonging package information</p>
 </div>
+<div class="section" id="how-to-setup-a-local-yum-repository-for-locally-mounted-iso">
+<span id="yum-mount-iso-dvd"></span><h2>How to setup a local yum repository for locally mounted ISO<a class="headerlink" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-iso" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://access.redhat.com/solutions/1355683">https://access.redhat.com/solutions/1355683</a></p>
+<dl class="docutils">
+<dt>Issue</dt>
+<dd><ul class="first last simple">
+<li>How to set up yum repository to use locally-mounted DVD with Red Hat Enterprise Linux (RHEL) 7</li>
+<li>Would like to upgrade server from RHEL 7.x to RHEL 7.y</li>
+<li>Have a secure environment that will never be connected to the internet, but still needs to be updated</li>
+<li>Way to update the packages on server, with no satellite server and servers disconnected from internet</li>
+<li>Offline patches for Red Hat systems</li>
+<li>How do I create a local repository in RHEL 7?</li>
+</ul>
+</dd>
+</dl>
+<ol class="arabic">
+<li><p class="first">Mount the RHEL 7 installation ISO to a directory like /mnt:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mount -o loop RHEL7.1.iso /mnt</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Copy the media.repo file from the root of the mounted directory to /etc/yum.repos.d/ and set the permissions to something sane:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># cp /mnt/media.repo /etc/yum.repos.d/rhel7dvd.repo</span>
+<span class="c1"># chmod 644 /etc/yum.repos.d/rhel7dvd.repo</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>3. Edit the new repo file changing the gpgcheck=0 setting to 1 and adding the following 3 lines:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">mnt</span><span class="o">/</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">gpg</span><span class="o">/</span><span class="n">RPM</span><span class="o">-</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">redhat</span><span class="o">-</span><span class="n">release</span>
+</pre></div>
+</div>
+<p>In the end, the new repo file could look like the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">InstallMedia</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">DVD</span> <span class="k">for</span> <span class="n">Red</span> <span class="n">Hat</span> <span class="n">Enterprise</span> <span class="n">Linux</span> <span class="mf">7.1</span> <span class="n">Server</span>
+<span class="n">mediaid</span><span class="o">=</span><span class="mf">1359576196.686790</span>
+<span class="n">metadata_expire</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">cost</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">mnt</span><span class="o">/</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">gpg</span><span class="o">/</span><span class="n">RPM</span><span class="o">-</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">redhat</span><span class="o">-</span><span class="n">release</span>
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p class="first">clear the related caches by yum clean all and subscription-manager clean once:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum clean all</span>
+<span class="c1"># subscription-manager clean</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">check whether you can get the packages list from the DVD repo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum  --noplugins list</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">if no problem , you wil update:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum  --noplugins update</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">
+<h2>How to setup a local yum repository for locally mounted CDROM/DVD<a class="headerlink" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.itzgeek.com/how-tos/linux/centos-how-tos/create-local-yum-repository-on-centos-7-rhel-7-using-dvd.html">http://www.itzgeek.com/how-tos/linux/centos-how-tos/create-local-yum-repository-on-centos-7-rhel-7-using-dvd.html</a></p>
+<ol class="arabic">
+<li><p class="first">In case of a CDROM, mount the device (cdrom must be connected in esxi):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /cdrom</span>
+<span class="c1"># mount /dev/cdrom /cdrom</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>2. Before creating a repo file, move the existing repo files present in /etc/yum.repos.d directory, if not required:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">original</span>
+<span class="n">mv</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/*.</span><span class="n">repo</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">original</span>
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p class="first">Create the new repo file called cdrom.repo under /etc/repos.d directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># vi /etc/yum.repos.d/local.repo</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Enter follwing details:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">LocalRepo</span><span class="p">]</span>
+<span class="n">name</span><span class="o">=</span><span class="n">LocalRepository</span>
+<span class="n">baseurl</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">cdrom</span>
+<span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgcheck</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">gpgkey</span><span class="o">=</span><span class="n">file</span><span class="p">:</span><span class="o">///</span><span class="n">etc</span><span class="o">/</span><span class="n">pki</span><span class="o">/</span><span class="n">rpm</span><span class="o">-</span><span class="n">gpg</span><span class="o">/</span><span class="n">RPM</span><span class="o">-</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">-</span><span class="n">CentOS</span><span class="o">-</span><span class="mi">7</span>
+</pre></div>
+</div>
+<ol class="arabic" start="4">
+<li><p class="first">Clear the repository cache by issuing the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum clean all</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 
 
@@ -214,7 +340,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../help/Help.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rpm.html" class="btn btn-neutral float-right" title="rpm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="dd.html" class="btn btn-neutral" title="dd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

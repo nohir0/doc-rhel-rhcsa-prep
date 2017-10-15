@@ -12,3 +12,9 @@ are revealed on that screen, on one line::
 	> vmlinuz initrd=initrd.img inst.stage2=hd:LABEL=RHEL-7.0\x20Server.x86_64 quiet
 
 To force installation in text mode, add **inst.text** to the end of this line.
+
+
+How to setup a local yum repository for locally mounted DVD/ISO
+----------------------------------------------------------------
+
+Documented under commands-collection yum: :ref:`yum-mount-iso-dvd`.

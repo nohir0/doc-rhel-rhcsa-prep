@@ -14,8 +14,11 @@ Introduction
 Reason enough to use Sphinx together with github and Red The Docs !
 
 Structured Text Help::
-    http://www.sphinx-doc.org/en/stable/rest.html#rst-primer
-    http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
+   http://www.sphinx-doc.org/en/stable/rest.html#rst-primer
+   http://openalea.gforge.inria.fr/doc/openalea/doc/_build/html/source/sphinx/rest_syntax.html
+
+RHEL Product Documentation::
+   https://access.redhat.com/documentation/en/red-hat-enterprise-linux/
 
 
 .. toctree::
@@ -27,6 +30,11 @@ Structured Text Help::
    :maxdepth: 2
 
    networking/index
+
+.. toctree::
+   :maxdepth: 2
+
+   applications/index
 
 .. toctree::
    :maxdepth: 2

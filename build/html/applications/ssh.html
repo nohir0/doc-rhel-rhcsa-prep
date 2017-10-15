@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CentOs Installation &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>ssh &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="up" title="Installation" href="index.html"/>
-        <link rel="next" title="kvm" href="kvm.html"/>
-        <link rel="prev" title="Installation" href="index.html"/> 
+        <link rel="up" title="Applications" href="index.html"/>
+        <link rel="next" title="apache" href="apache.html"/>
+        <link rel="prev" title="Applications" href="index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,15 +91,10 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">CentOs Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#force-text-setup">Force Text Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/Installation.html">CentOs Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#force-text-setup">Force Text Setup</a></li>
 </ul>
 </li>
 </ul>
@@ -114,14 +109,14 @@
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ssh-tunnel">ssh tunnel</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">vncserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apache.html">apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vncserver.html">vncserver</a></li>
 </ul>
 </li>
 </ul>
@@ -133,8 +128,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a></li>
@@ -192,15 +185,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Installation</a> &raquo;</li>
+          <li><a href="index.html">Applications</a> &raquo;</li>
         
-      <li>CentOs Installation</li>
+      <li>ssh</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/installation/Installation.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/applications/ssh.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -213,21 +206,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="centos-installation">
-<h1>CentOs Installation<a class="headerlink" href="#centos-installation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="force-text-setup">
-<h2>Force Text Setup<a class="headerlink" href="#force-text-setup" title="Permalink to this headline">¶</a></h2>
-<p>You can also force installation in text mode if you wish. To do so, highlight the Install Red
-Hat Enterprise Linux 7.0 option and press the tab key. When you do, the following options
-are revealed on that screen, on one line:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vmlinuz</span> <span class="n">initrd</span><span class="o">=</span><span class="n">initrd</span><span class="o">.</span><span class="n">img</span> <span class="n">inst</span><span class="o">.</span><span class="n">stage2</span><span class="o">=</span><span class="n">hd</span><span class="p">:</span><span class="n">LABEL</span><span class="o">=</span><span class="n">RHEL</span><span class="o">-</span><span class="mf">7.0</span>\<span class="n">x20Server</span><span class="o">.</span><span class="n">x86_64</span> <span class="n">quiet</span>
+  <div class="section" id="ssh">
+<h1>ssh<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ssh-tunnel">
+<span id="id1"></span><h2>ssh tunnel<a class="headerlink" href="#ssh-tunnel" title="Permalink to this headline">¶</a></h2>
+<p>You can create a ssh tunnel and then connect to the defined port via localhost:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">C</span> <span class="o">-</span><span class="n">L</span> <span class="mi">5901</span><span class="p">:</span><span class="n">localhost</span><span class="p">:</span><span class="mi">5901</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">100.100</span>
 </pre></div>
 </div>
-<p>To force installation in text mode, add <strong>inst.text</strong> to the end of this line.</p>
-</div>
-<div class="section" id="how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">
-<h2>How to setup a local yum repository for locally mounted DVD/ISO<a class="headerlink" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso" title="Permalink to this headline">¶</a></h2>
-<p>Documented under commands-collection yum: <a class="reference internal" href="../commands-collection/yum.html#yum-mount-iso-dvd"><span class="std std-ref">How to setup a local yum repository for locally mounted ISO</span></a>.</p>
+<p>This example establishes a ssh tunnel to 192.168.100.100 for port 5901.
+After session establishment you can vnc to localhost:5901 and it uses the port forwarinding through the tunnel.
+The option <strong>-L</strong> is the option that makes port forwarding possible</p>
 </div>
 </div>
 
@@ -241,10 +230,10 @@ are revealed on that screen, on one line:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="kvm.html" class="btn btn-neutral float-right" title="kvm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="apache.html" class="btn btn-neutral float-right" title="apache" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

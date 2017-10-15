@@ -8,3 +8,6 @@ Commands Collection
 
    dd
    yum
+   rpm
+   mount
+   ssh

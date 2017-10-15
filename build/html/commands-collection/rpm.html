@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>rpm &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="next" title="CentOs Installation" href="Installation.html"/>
-        <link rel="prev" title="Red Hat Enterprise RHCSA Preparation" href="../index.html"/> 
+        <link rel="up" title="Commands Collection" href="index.html"/>
+        <link rel="next" title="mount" href="mount.html"/>
+        <link rel="prev" title="yum" href="yum.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -90,15 +91,10 @@
               
             
             
-              <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html">CentOs Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#force-text-setup">Force Text Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/Installation.html">CentOs Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#force-text-setup">Force Text Setup</a></li>
 </ul>
 </li>
 </ul>
@@ -115,30 +111,22 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">vncserver</a></li>
 </ul>
 </li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Commands Collection</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="dd.html">dd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dd.html#dd-copy">dd copy</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yum.html">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/mount.html">mount</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mount.html">mount</a></li>
 </ul>
 </li>
 </ul>
@@ -191,13 +179,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Installation</li>
+          <li><a href="index.html">Commands Collection</a> &raquo;</li>
+        
+      <li>rpm</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/installation/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/commands-collection/rpm.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -210,20 +200,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">CentOs Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#force-text-setup">Force Text Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="rpm">
+<h1>rpm<a class="headerlink" href="#rpm" title="Permalink to this headline">¶</a></h1>
+<p>Which packages are installed on the system:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rpm</span> <span class="o">--</span><span class="n">query</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>In contrast, the following command lists all files in all packages on the local system:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># rpm --query -all</span>
+</pre></div>
 </div>
 </div>
 
@@ -237,10 +222,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Installation.html" class="btn btn-neutral float-right" title="CentOs Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mount.html" class="btn btn-neutral float-right" title="mount" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Red Hat Enterprise RHCSA Preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="yum.html" class="btn btn-neutral" title="yum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

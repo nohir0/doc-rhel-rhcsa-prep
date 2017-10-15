@@ -1,13 +1,11 @@
 #####################
-Commands Collection
+Applications
 #####################
 
 
 .. toctree::
    :maxdepth: 2
 
-   dd
-   yum
-   rpm
-   mount
    ssh
+   apache
+   vncserver
