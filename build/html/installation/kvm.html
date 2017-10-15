@@ -99,6 +99,8 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
 </ul>
 </li>
@@ -215,6 +217,43 @@
             
   <div class="section" id="kvm">
 <h1>kvm<a class="headerlink" href="#kvm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">
+<h2>Does my CPU support Virtualization and is it enabled in BIOS / UEFI?<a class="headerlink" href="#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[gans@server1 ~]$ grep -c vmx /proc/cpuinfo
+1
+[gans@server1 ~]$
+[gans@server1 ~]$ lsmod | grep kvm
+kvm_intel             170086  0
+kvm                   566340  1 kvm_intel
+irqbypass              13503  1 kvm
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-run-nested-kvm-within-vmware-esxi-5-5">
+<h2>How to run nested KVM within VMWare ESXi (5.5)<a class="headerlink" href="#how-to-run-nested-kvm-within-vmware-esxi-5-5" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Shutdown the VM</li>
+</ol>
+<p>2. Locate the guest hypervisor virtual machine configuration file (&lt;VM-name.vmx&gt;), edit and add the following line at the end</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vhv</span><span class="o">.</span><span class="n">enable</span> <span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span>
+</pre></div>
+</div>
+<p>3. Identify the nested hypervisor vm ID and reload it’s configuration with the <strong>vim-cmd esxi command</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">~</span> <span class="c1"># vim-cmd vmsvc/getallvms | grep -i 50_s1</span>
+    <span class="mi">30</span>     <span class="n">RH_Lab122_50_s1</span>          <span class="p">[</span><span class="n">datastore3</span><span class="p">]</span> <span class="n">RH_Lab122_50_s1</span><span class="o">/</span><span class="n">RH_Lab122_50_s1</span><span class="o">.</span><span class="n">vmx</span>             <span class="n">rhel6_64Guest</span>           <span class="n">vmx</span><span class="o">-</span><span class="mi">10</span>
+<span class="o">~</span> <span class="c1">#</span>
+<span class="o">~</span> <span class="c1"># vim-cmd vmsvc/reload 30</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Start the VM</li>
+</ol>
+<p>5. Verify that the nested hypervisor correctly detects the vmx flag</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[gans@server1 ~]$ grep -c vmx /proc/cpuinfo
+1
+</pre></div>
+</div>
+</div>
 <div class="section" id="packages-to-install-for-kvm-in-rhel">
 <h2>Packages to install for KVM in RHEL<a class="headerlink" href="#packages-to-install-for-kvm-in-rhel" title="Permalink to this headline">¶</a></h2>
 <p>These can be installed via the GNOME Software Manager</p>
