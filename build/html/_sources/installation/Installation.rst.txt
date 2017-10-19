@@ -18,3 +18,14 @@ How to setup a local yum repository for locally mounted DVD/ISO
 ----------------------------------------------------------------
 
 Documented under commands-collection yum: :ref:`yum-mount-iso-dvd`.
+
+
+How to install Display Manager (GNOME) after initial (minimal) Installation
+----------------------------------------------------------------------------
+
+::
+
+   # yum group install "Server with GUI"
+   # systemctl set-default graphical.target
+     Removed symlink /etc/systemd/system/default.target.
+     Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/graphical.target.

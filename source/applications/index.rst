@@ -9,3 +9,4 @@ Applications
    ssh
    apache
    vncserver
+   kvm

@@ -96,12 +96,16 @@
 <li class="toctree-l2"><a class="reference internal" href="Installation.html">CentOs Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#force-text-setup">Force Text Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">kvm</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#move-kvm-storage-location-to-another-place">Move KVM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-permission-issues-when-changing-the-vm-storage-location-to-another-place">File permission issues when changing the VM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#application-documentation-admin-usertasks-a-s-o">Application documentation - admin, usertasks a.s.o</a></li>
 </ul>
 </li>
 </ul>
@@ -124,6 +128,14 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">vncserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -231,6 +243,7 @@ irqbypass              13503  1 kvm
 </div>
 <div class="section" id="how-to-run-nested-kvm-within-vmware-esxi-5-5">
 <h2>How to run nested KVM within VMWare ESXi (5.5)<a class="headerlink" href="#how-to-run-nested-kvm-within-vmware-esxi-5-5" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://forum.ivorde.com/kvm-nested-in-vmware-esxi-5-5-enable-guest-hypervisor-vmx-svm-flags-without-vsphere-web-client-t19773.html">https://forum.ivorde.com/kvm-nested-in-vmware-esxi-5-5-enable-guest-hypervisor-vmx-svm-flags-without-vsphere-web-client-t19773.html</a></p>
 <ol class="arabic simple">
 <li>Shutdown the VM</li>
 </ol>
@@ -262,6 +275,34 @@ irqbypass              13503  1 kvm
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum group install &quot;Virtualization Host&quot; &quot;Virtualization Client&quot;</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="move-kvm-storage-location-to-another-place">
+<h2>Move KVM Storage location to another place<a class="headerlink" href="#move-kvm-storage-location-to-another-place" title="Permalink to this headline">¶</a></h2>
+<p>One advantage of this setup is that it retains the default SELinux settings for the /var
+/lib/libvirt/images directory, as defined in the file_contexts file in the /etc/selinux/targeted
+/contexts/files directory. In other words, this configuration survives a relabel of SELinux</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># mkdir /home/gans/KVM</span>
+<span class="c1"># su -</span>
+<span class="c1"># semanage fcontext -a -t virt_image_t &#39;/home/gans/KVM(/.*)?&#39;</span>
+<span class="c1"># restorecon /home/gans/KVM</span>
+<span class="c1"># rmdir /var/lib/libvirt/images</span>
+<span class="c1"># ln -s /home/gans/KVM /var/lib/libvirt/images</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-permission-issues-when-changing-the-vm-storage-location-to-another-place">
+<h2>File permission issues when changing the VM Storage location to another place<a class="headerlink" href="#file-permission-issues-when-changing-the-vm-storage-location-to-another-place" title="Permalink to this headline">¶</a></h2>
+<p>When installing the first VM there may be permission errors for the linked <strong>/var/lib/libvirt/images</strong> directory.
+In my case I linked to /home/gans/KVM - so best approach for me to overcome these errors was to run virt-manager as my own user.</p>
+<p>In file <strong>/etc/libvirt/qemu.conf</strong> find the user and group parameters and uncomment | enter own user and group information.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">qemu</span><span class="o">.</span><span class="n">conf</span>
+<span class="n">systemctl</span> <span class="n">restart</span> <span class="n">libvirtd</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="application-documentation-admin-usertasks-a-s-o">
+<h2>Application documentation - admin, usertasks a.s.o<a class="headerlink" href="#application-documentation-admin-usertasks-a-s-o" title="Permalink to this headline">¶</a></h2>
+<p>Documented under applications kvm: <a class="reference internal" href="../applications/kvm.html#kvm-application"><span class="std std-ref">Mounting installation media for VM installation</span></a>.</p>
 </div>
 </div>
 

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Applications &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>kvm &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="next" title="ssh" href="ssh.html"/>
-        <link rel="prev" title="routing" href="../networking/routing.html"/> 
+        <link rel="up" title="Applications" href="index.html"/>
+        <link rel="next" title="Commands Collection" href="../commands-collection/index.html"/>
+        <link rel="prev" title="vncserver" href="vncserver.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -120,19 +121,19 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ssh.html">ssh</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="ssh.html#ssh-tunnel">ssh tunnel</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="apache.html">apache</a></li>
 <li class="toctree-l2"><a class="reference internal" href="vncserver.html">vncserver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#important-files-and-directories">Important Files and directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#important-commands">Important commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#virt-install">virt-install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#important-commands">Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virt-install">virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
 </ul>
 </li>
 </ul>
@@ -205,13 +206,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Applications</li>
+          <li><a href="index.html">Applications</a> &raquo;</li>
+        
+      <li>kvm</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/applications/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/applications/kvm.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -224,25 +227,76 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="applications">
-<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ssh.html">ssh</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ssh.html#ssh-tunnel">ssh tunnel</a></li>
+  <div class="section" id="kvm">
+<h1>kvm<a class="headerlink" href="#kvm" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mounting-installation-media-for-vm-installation">
+<span id="kvm-application"></span><h2>Mounting installation media for VM installation<a class="headerlink" href="#mounting-installation-media-for-vm-installation" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>This is acutally not a simple task in RH|CentOS.</dt>
+<dd><ul class="first last simple">
+<li>CDROM mount passthrough from host to guest is not supported on my system at least…</li>
+<li>Mounting an ISO image brings SELinux issues, qemu cannot access these directories initialls, additional configuration is necessary</li>
+<li>I found the easiest approach is to access the install media via network protocols directly</li>
+<li>In my first successful test I installed vsftpd and copied the CentOS DVD data to /var/ftp/pub/centos and accessed it via virtualization-manager</li>
 </ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="important-files-and-directories">
+<h2>Important Files and directories<a class="headerlink" href="#important-files-and-directories" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>KVM Konfiguration Files: <strong>/etc/libvirt/qemu</strong></li>
+<li>Disk images: <strong>/var/lib/libvirt/images</strong></li>
+</ul>
+</div></blockquote>
+<p>Changes in the XML config files are implemented only after <strong>libvirtd</strong> service restart!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># systemctl restart libvirtd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="important-commands">
+<h2>Important commands<a class="headerlink" href="#important-commands" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>virt-install</strong></li>
+<li><strong>virsh</strong></li>
+<li><strong>virt-clone</strong></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="virt-install">
+<h2>virt-install<a class="headerlink" href="#virt-install" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virt-install --name test.example.com \</span>
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">ram</span><span class="o">=</span><span class="mi">1024</span> <span class="o">--</span><span class="n">vcpus</span><span class="o">=</span><span class="mi">2</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">disk</span> <span class="n">path</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">test</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">graphics</span><span class="o">=</span><span class="n">spice</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">location</span><span class="o">=</span><span class="n">ftp</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">122.100</span><span class="o">/</span><span class="n">pub</span><span class="o">/</span><span class="n">inst</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="nb">type</span><span class="o">=</span><span class="n">linux</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">os</span><span class="o">-</span><span class="n">variant</span><span class="o">=</span><span class="n">rhel7</span>
+</pre></div>
+</div>
+<p>If a mistake happens during VM creation, Ctrl+C aborts the process,
+but the VM will be still running and the same name cannot be reused,
+because there is a configuration file and virtual disk.
+To get rid of this wrong VM….</p>
+</div>
+<div class="section" id="delete-a-vm-from-command-line">
+<h2>Delete a VM from command line<a class="headerlink" href="#delete-a-vm-from-command-line" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Stop the VM:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virsh destroy test.example.com</span>
+</pre></div>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="apache.html">apache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vncserver.html">vncserver</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#important-files-and-directories">Important Files and directories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#important-commands">Important commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#virt-install">virt-install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
-</ul>
-</li>
-</ul>
+</ol>
+<p>2. Delete associated XML configuration file in <strong>/etc/libvirt/qemu</strong> and virtual disk file in <strong>/var/lib/libvirt/images</strong> (not if it is to be reused)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virsh undefine test.example.com --remove-all-storage</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Now <strong>virt-install</strong> can be run again with same name</li>
+</ol>
 </div>
 </div>
 
@@ -256,10 +310,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ssh.html" class="btn btn-neutral float-right" title="ssh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../commands-collection/index.html" class="btn btn-neutral float-right" title="Commands Collection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../networking/routing.html" class="btn btn-neutral" title="routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="vncserver.html" class="btn btn-neutral" title="vncserver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
