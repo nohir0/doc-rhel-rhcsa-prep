@@ -50,3 +50,12 @@ Following command will read out the fourth field in /etc/passwd (the group ID) o
 ::
 
    # awk -F : '/mike/ {print $4}' /etc/passwd
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -63,3 +63,13 @@ Prevent Autostart
 ::
 
    # nmcli con mod "eth0-work" connection.autoconnect no
+
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

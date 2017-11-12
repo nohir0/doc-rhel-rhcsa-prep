@@ -107,3 +107,12 @@ System to be cloned must be shutdown first
 
 IP addressing and also MAC address seems to be same like in the original image.
 To scale that kind of additional changes, the **kickstart** feature can be used.
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

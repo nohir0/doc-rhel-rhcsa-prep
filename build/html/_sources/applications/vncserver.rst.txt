@@ -51,3 +51,12 @@ So until now I start the vncserver manually with above command after reboots::
    systemctl enable vncserver@:1.service
    reboot
    systemctl start vncserver@:1.service
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

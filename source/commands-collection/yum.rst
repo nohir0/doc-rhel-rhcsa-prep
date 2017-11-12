@@ -116,3 +116,10 @@ Enter follwing details::
    # yum clean all
 
 
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

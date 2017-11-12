@@ -95,3 +95,12 @@ Application documentation - admin, usertasks a.s.o
 ----------------------------------------------------------------
 
 Documented under applications kvm: :ref:`kvm-application`.
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -28,30 +28,10 @@ Offline documentation besides man pages::
    :maxdepth: 2
 
    installation/index
-
-.. toctree::
-   :maxdepth: 2
-
    networking/index
-
-.. toctree::
-   :maxdepth: 2
-
    applications/index
-
-.. toctree::
-   :maxdepth: 2
-
    commands-collection/index
-
-.. toctree::
-   :maxdepth: 2
-
    kernel/index
-
-.. toctree::
-   :maxdepth: 2
-
    help/Help
 
 

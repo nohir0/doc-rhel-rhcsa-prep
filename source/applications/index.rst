@@ -28,3 +28,11 @@ Further extensive documentation can be found here **/usr/share/doc** (content de
    apache
    vncserver
    kvm
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -20,3 +20,12 @@ Change hostname permanently
 ::
 
    # hostnamectl set-hostname newname
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

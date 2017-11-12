@@ -60,3 +60,52 @@ Network Manager CLI
 ::
 
    # nmcli dev status
+
+
+
+Configuring VLAN Trunk With Sub-Interfaces
+--------------------------------------------
+First thing is to make sure that the 801.1q kernel module is loaded:
+::
+
+   # lsmod | grep 8021q
+
+If not, load it and make it persistent:
+::
+
+   # modprobe 8021q
+   # echo "8021q" > /etc/modules-load.d/8021q.conf
+
+The physical interface is configured in **/etc/sysconfig/network-scripts/ifcfg-***
+::
+
+   DEVICE=eth0
+   TYPE=Ethernet
+   BOOTPROTO=none
+   ONBOOT=yes
+
+
+Configure the VLAN interface script in /etc/sysconfig/network-scripts. The configuration filename must be the physical interface plus a “.” character plus the VLAN id number. For example, if the VLAN id is 10, and the physical network interface is eth0, then the configuration filename should be ifcfg-eth0.10, as the example below:
+::
+
+   DEVICE=eth0.10
+   BOOTPROTO=none
+   ONBOOT=yes
+   IPADDR=14.1.1.31
+   NETMASK=255.255.255.0
+   USERCTL=no
+   NETWORK=14.1.1.0
+   VLAN=yes
+
+::
+
+   # service network restart
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

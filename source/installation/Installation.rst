@@ -29,3 +29,12 @@ How to install Display Manager (GNOME) after initial (minimal) Installation
    # systemctl set-default graphical.target
      Removed symlink /etc/systemd/system/default.target.
      Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/graphical.target.
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -11,3 +11,11 @@ In contrast, the following command lists all files in all packages on the local 
 
    # rpm --query -all
 
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

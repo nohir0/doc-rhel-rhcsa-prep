@@ -30,3 +30,11 @@ Find Out Linux Distribution And Version
    rpm
    mount
    ssh
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
