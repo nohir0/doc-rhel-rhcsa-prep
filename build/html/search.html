@@ -96,6 +96,11 @@
 <li class="toctree-l3"><a class="reference internal" href="installation/Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="installation/kickstart.html">kickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="installation/kvm.html">kvm</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="installation/kvm.html#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation/kvm.html#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
@@ -110,8 +115,19 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="networking/index.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking/network-commands.html">network-commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="networking/network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networking/network-commands.html#network-manager">Network Manager</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="networking/routing.html">routing</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="networking/dns.html">dns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="networking/dns.html#etc-nsswitch-conf">/etc/nsswitch.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="networking/dns.html#hostname">Hostname</a></li>
 </ul>
 </li>
 </ul>
@@ -119,18 +135,31 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="applications/index.html">Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="applications/ssh.html">ssh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="applications/shell.html">shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications/shell.html#text-streams-and-redirection">Text Streams and redirection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/shell.html#ln-hardlink-vs-softlink">ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/shell.html#sed-stream-editor">sed - Stream Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/shell.html#awk-aho-weinberger-and-kernighan">awk - Aho, Weinberger, and Kernighan</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="applications/apache.html">apache</a></li>
-<li class="toctree-l2"><a class="reference internal" href="applications/vncserver.html">vncserver</a></li>
-<li class="toctree-l2"><a class="reference internal" href="applications/kvm.html">kvm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html#important-commands">Important commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html#virt-install">virt-install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/ssh.html">ssh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="applications/apache.html">apache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/vncserver.html">vncserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="applications/kvm.html">kvm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="applications/kvm.html#virt-clone">virt-clone</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -138,19 +167,29 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="commands-collection/dd.html#dd-copy">dd copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="commands-collection/dd.html#dd-copy">dd copy</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="commands-collection/rpm.html">rpm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands-collection/mount.html">mount</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands-collection/ssh.html">ssh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands-collection/rpm.html">rpm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands-collection/mount.html">mount</a></li>
+<li class="toctree-l3"><a class="reference internal" href="commands-collection/ssh.html">ssh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="kernel/index.html">Kernel Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a></li>
 </ul>
 </li>
 </ul>

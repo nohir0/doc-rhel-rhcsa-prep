@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>kickstart &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="next" title="CentOs Installation" href="Installation.html"/>
-        <link rel="prev" title="Red Hat Enterprise RHCSA Preparation" href="../index.html"/> 
+        <link rel="up" title="Installation" href="index.html"/>
+        <link rel="next" title="kvm" href="kvm.html"/>
+        <link rel="prev" title="CentOs Installation" href="Installation.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,16 +92,16 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Installation.html">CentOs Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#force-text-setup">Force Text Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="kickstart.html">kickstart</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">kickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#important-kickstart-file-options">Important kickstart file options</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="kvm.html">kvm</a><ul>
@@ -213,13 +214,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Installation</li>
+          <li><a href="index.html">Installation</a> &raquo;</li>
+        
+      <li>kickstart</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/installation/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/installation/kickstart.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -232,31 +235,106 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">CentOs Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#force-text-setup">Force Text Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a></li>
+  <div class="section" id="kickstart">
+<h1>kickstart<a class="headerlink" href="#kickstart" title="Permalink to this headline">¶</a></h1>
+<dl class="docutils">
+<dt>Two methods for creating the kickstart configuration file:</dt>
+<dd><ul class="first last simple">
+<li>/root/anaconda-ks.cfg</li>
+<li>graphical kickstart configurator <strong>system-config-kickstart</strong> command</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="kickstart.html">kickstart</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="kvm.html">kvm</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#move-kvm-storage-location-to-another-place">Move KVM Storage location to another place</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#file-permission-issues-when-changing-the-vm-storage-location-to-another-place">File permission issues when changing the VM Storage location to another place</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kvm.html#application-documentation-admin-usertasks-a-s-o">Application documentation - admin, usertasks a.s.o</a></li>
-</ul>
-</li>
-</ul>
+</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum install system-config-kickstart</span>
+</pre></div>
+</div>
+<p>There is also software acting as installation server for greater deployments like:
+<a class="reference external" href="http://cobbler.github.io/">http://cobbler.github.io/</a></p>
+<div class="section" id="how-to-start-installation-with-kickstart-file">
+<h2>How to start installation with kickstart file<a class="headerlink" href="#how-to-start-installation-with-kickstart-file" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Mount filesystem with kickstart file</li>
+<li>On the first menu of RHEL installation press &lt;TAB&gt;</li>
+<li>Add the “ks” option to the vmlinz parameter line</li>
+</ol>
+</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vmlinuz</span> <span class="n">initrd</span><span class="o">=</span><span class="n">initrd</span><span class="o">.</span><span class="n">img</span> <span class="n">inst</span><span class="o">.</span><span class="n">stage2</span><span class="o">=</span><span class="n">hd</span><span class="p">:</span><span class="n">LABEL</span><span class="o">=</span><span class="n">RHEL</span><span class="o">-</span><span class="mf">7.0</span> \<span class="n">x20Server</span><span class="o">.</span><span class="n">x86_64</span> <span class="n">quiet</span> <span class="n">ks</span><span class="o">=</span><span class="n">hd</span><span class="p">:</span><span class="n">sdb1</span><span class="p">:</span><span class="o">/</span><span class="n">ks</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p>It is possible to fetch the kickstart file from network too</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ks</span><span class="o">=</span><span class="n">nfs</span><span class="p">:</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">122.1</span><span class="p">:</span><span class="o">/</span><span class="n">ks</span><span class="o">.</span><span class="n">cfg</span>
+<span class="n">ks</span><span class="o">=</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">192.168</span><span class="o">.</span><span class="mf">122.1</span><span class="o">/</span><span class="n">ks</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="important-kickstart-file-options">
+<h2>Important kickstart file options<a class="headerlink" href="#important-kickstart-file-options" title="Permalink to this headline">¶</a></h2>
+<p>After kickstart configuration file creation a validation should be made via <strong>ksvalidator</strong> command.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># version=RHEL7</span>
+<span class="c1"># authconfig --enableshadow --passalgo=sha512</span>
+</pre></div>
+</div>
+<p>Installation source:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="c1"># cdrom</span>
+ <span class="c1"># nfs --server=192.168.122.1 --dir=/inst</span>
+ <span class="c1"># url --url http://192.168.122.1/inst</span>
+ <span class="c1"># url --url ftp://192.168.122.1/pub/inst</span>
+
+ <span class="c1"># harddrive --partition=/dev/sda10 --dir=/tmp/michael/</span>
+
+ <span class="c1"># firstboot --disabled</span>
+
+ <span class="c1"># keyboard --vckeymap=us --xlayouts=&#39;us&#39;</span>
+ <span class="c1"># lang en_US.UTF-8</span>
+
+ <span class="c1"># rootpw --iscrypted $6$5UrLfXTk$CsCW0nQytrUuvycuLT317/</span>
+ <span class="c1"># user --groups=wheel name=michael --password=... --iscrypted --gecos=&quot;MJ&quot;</span>
+
+<span class="c1"># timezone America/Los_Angeles --isUtc</span>
+</pre></div>
+</div>
+<p>The network configuration must be <strong>one line</strong>!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># network --device eth0 --bootproto dhcp</span>
+<span class="c1"># network --bootproto static --device=eth0 --gateway=192.168.122.1 --ip=192.168.122.150 --netmask=255.255.255.0 --noipv6 --nameserver==192.168.122.1 --activate network --hostname tester1.example.com</span>
+
+<span class="c1"># firewall --service=ssh</span>
+<span class="c1"># selinux --enforcing</span>
+</pre></div>
+</div>
+<p>Boot storage and partitions
+Remove any –onpart directives, otherwise an error occurs during installation</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># bootloader --location=mbr --boot-drive=vda</span>
+<span class="c1"># clearpart --all --initlabel –-drives=vda</span>
+
+<span class="c1"># part /boot --fstype=&quot;xfs&quot; --size=500</span>
+<span class="c1"># part swap --fstype=&quot;swap&quot; --size=1000</span>
+<span class="c1"># part / --fstype=&quot;xfs&quot; --size=10000</span>
+<span class="c1"># part /home --fstype=&quot;xfs&quot; --size=1000</span>
+
+<span class="c1"># part pv.01 --fstype=&quot;lvmpv&quot; --ondisk=vda --size=11008</span>
+<span class="c1"># part /boot --fstype=&quot;xfs&quot; --ondisk=vda --size=500</span>
+<span class="c1"># part swap --fstype=&quot;swap&quot; --ondisk=vda --size=1000</span>
+<span class="c1"># volgroup rhel --pesize=4096 pv.01</span>
+<span class="c1"># logvol / --fstype=&quot;xfs&quot; --size=10000 --name=root --vgname=rhel</span>
+<span class="c1"># logvol /home --fstype=&quot;xfs&quot; --size=1000 -name=home --vgname=rhel</span>
+
+<span class="c1">#repo --name=&quot;Red Hat Enterprise Linux&quot; --baseurl=ftp://192.168.122.1/pub/inst --cost=100</span>
+</pre></div>
+</div>
+<p>Package installation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># %packages</span>
+<span class="c1"># @base</span>
+<span class="c1"># @core</span>
+<span class="c1"># ...</span>
+<span class="c1"># @print-client</span>
+<span class="c1"># @x11</span>
+<span class="c1"># %end</span>
+
+<span class="c1"># %post</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -270,10 +348,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Installation.html" class="btn btn-neutral float-right" title="CentOs Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kvm.html" class="btn btn-neutral float-right" title="kvm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../index.html" class="btn btn-neutral" title="Red Hat Enterprise RHCSA Preparation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Installation.html" class="btn btn-neutral" title="CentOs Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -99,6 +99,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html">kickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/kvm.html">kvm</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
@@ -134,8 +139,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#important-commands">Important commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#virt-install">virt-install</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virsh">virsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#virt-clone">virt-clone</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
 </ul>
 </li>
 </ul>
@@ -238,6 +246,15 @@
 <li>Mounting an ISO image brings SELinux issues, qemu cannot access these directories initialls, additional configuration is necessary</li>
 <li>I found the easiest approach is to access the install media via network protocols directly</li>
 <li>In my first successful test I installed vsftpd and copied the CentOS DVD data to /var/ftp/pub/centos and accessed it via virtualization-manager</li>
+<li><dl class="first docutils">
+<dt>It is most probably a SELinux issue, found a solution for “Permission denied” when mounting .iso images</dt>
+<dd><ul class="first last">
+<li>Had to use one command that allowed me to mount .iso e.g. located in /home/gans/KVM/install: <strong>setsebool -P virt_use_nfs 1</strong></li>
+<li>Maybe I also had to use virt-manager as root, but not sure about that</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </dd>
 </dl>
@@ -259,6 +276,7 @@
 <h2>Important commands<a class="headerlink" href="#important-commands" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ul class="simple">
+<li><strong>virt-manager</strong></li>
 <li><strong>virt-install</strong></li>
 <li><strong>virsh</strong></li>
 <li><strong>virt-clone</strong></li>
@@ -297,6 +315,39 @@ To get rid of this wrong VM….</p>
 <ol class="arabic simple" start="3">
 <li>Now <strong>virt-install</strong> can be run again with same name</li>
 </ol>
+</div>
+<div class="section" id="virsh">
+<h2>virsh<a class="headerlink" href="#virsh" title="Permalink to this headline">¶</a></h2>
+<p>VM management from the command line</p>
+<blockquote>
+<div><ul class="simple">
+<li>Start VM</li>
+<li>Stop VM</li>
+<li>Delete VM</li>
+</ul>
+</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virsh list --all</span>
+<span class="c1"># virsh capabilities</span>
+<span class="c1"># virsh start server1.example.com</span>
+<span class="c1"># virsh shutdown server1.example.com</span>
+<span class="c1"># virsh destroy server1.example.com</span>
+<span class="c1"># virsh autostart server1.example.com</span>
+<span class="c1"># virsh autostart --disable tester1.example.com</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="virt-clone">
+<h2>virt-clone<a class="headerlink" href="#virt-clone" title="Permalink to this headline">¶</a></h2>
+<p>System to be cloned must be shutdown first</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># virt-clone --original=server1.example.com \</span>
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">tester1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">file</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">tester1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">img</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">file</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">tester1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="mf">1.</span><span class="n">img</span> \
+<span class="o">&gt;</span> <span class="o">--</span><span class="n">file</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libvirt</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">tester1</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">-</span><span class="mf">2.</span><span class="n">img</span>
+</pre></div>
+</div>
+<p>IP addressing and also MAC address seems to be same like in the original image.
+To scale that kind of additional changes, the <strong>kickstart</strong> feature can be used.</p>
 </div>
 </div>
 

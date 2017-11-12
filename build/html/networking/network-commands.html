@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Networking &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>network-commands &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
-        <link rel="next" title="network-configuration-troubleshooting" href="network-configuration-troubleshooting.html"/>
-        <link rel="prev" title="kvm" href="../installation/kvm.html"/> 
+        <link rel="up" title="Networking" href="index.html"/>
+        <link rel="next" title="routing" href="routing.html"/>
+        <link rel="prev" title="network-configuration-troubleshooting" href="network-configuration-troubleshooting.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -116,11 +117,11 @@
 </li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Networking</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Networking</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="network-configuration-troubleshooting.html">network-configuration-troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-commands.html">network-commands</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="network-commands.html#network-manager">Network Manager</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">network-commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-manager">Network Manager</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">routing</a><ul>
@@ -233,13 +234,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Networking</li>
+          <li><a href="index.html">Networking</a> &raquo;</li>
+        
+      <li>network-commands</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/networking/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/networking/network-commands.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -252,26 +255,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="networking">
-<h1>Networking<a class="headerlink" href="#networking" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="network-configuration-troubleshooting.html">network-configuration-troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="network-commands.html">network-commands</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
-<li class="toctree-l2"><a class="reference internal" href="network-commands.html#network-manager">Network Manager</a></li>
+  <div class="section" id="network-commands">
+<h1>network-commands<a class="headerlink" href="#network-commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ifconfig-arp-netstat-route-are-obsolete">
+<h2>ifconfig | arp | netstat | route are “obsolete”<a class="headerlink" href="#ifconfig-arp-netstat-route-are-obsolete" title="Permalink to this headline">¶</a></h2>
+<p><em>ifconfig</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ip link show</span>
+<span class="c1"># ip addr show</span>
+<span class="c1"># ip -s link</span>
+
+<span class="c1"># ip addr add 192.168.122.150/24 dev eth0</span>
+<span class="c1"># ip link set dev eth0 up|down</span>
+<span class="c1"># ip link set dev device promisc on|off</span>
+<span class="c1"># ip link set dev device mtu N</span>
+</pre></div>
+</div>
+<p><em>arp and route</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ip neigh show</span>
+<span class="c1"># ip route</span>
+</pre></div>
+</div>
+<p><em>netstat</em></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># ss -tuna4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="network-manager">
+<h2>Network Manager<a class="headerlink" href="#network-manager" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>nmcli</strong> command line tool</li>
+<li><strong>nmtui</strong> text based graphical tool</li>
+<li><strong>nm-connection-editor</strong> GTK3 based tool</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="routing.html">routing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="dns.html">dns</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="dns.html#etc-nsswitch-conf">/etc/nsswitch.conf</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dns.html#hostname">Hostname</a></li>
-</ul>
-</li>
-</ul>
+</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con show</span>
+<span class="n">NAME</span>    <span class="n">UUID</span>                                  <span class="n">TYPE</span>            <span class="n">DEVICE</span>
+<span class="n">ens192</span>  <span class="mi">25946</span><span class="n">d9c</span><span class="o">-</span><span class="n">b79c</span><span class="o">-</span><span class="mi">415</span><span class="n">d</span><span class="o">-</span><span class="mf">97e0</span><span class="o">-</span><span class="mi">638</span><span class="n">bc017c62d</span>  <span class="mi">802</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">ethernet</span>  <span class="n">ens192</span>
+<span class="n">virbr0</span>  <span class="n">c9f5d0ca</span><span class="o">-</span><span class="n">a518</span><span class="o">-</span><span class="mi">436</span><span class="n">c</span><span class="o">-</span><span class="n">adea</span><span class="o">-</span><span class="mi">6</span><span class="n">db1c243c71f</span>  <span class="n">bridge</span>          <span class="n">virbr0</span>
+<span class="n">virbr1</span>  <span class="mi">8</span><span class="n">d8c5bff</span><span class="o">-</span><span class="mi">2558</span><span class="o">-</span><span class="mi">4</span><span class="n">ceb</span><span class="o">-</span><span class="n">b99a</span><span class="o">-</span><span class="n">e1aa14a120f5</span>  <span class="n">bridge</span>          <span class="n">virbr1</span>
+<span class="n">vnet0</span>   <span class="mi">605</span><span class="n">fe99d</span><span class="o">-</span><span class="mi">1</span><span class="n">d3b</span><span class="o">-</span><span class="mi">4242</span><span class="o">-</span><span class="mi">8127</span><span class="o">-</span><span class="n">d172c7450def</span>  <span class="n">tun</span>             <span class="n">vnet0</span>
+
+<span class="c1"># nmcli con add con-name &quot;eth0-work&quot; type ethernet ifname eth0</span>
+<span class="c1"># nmcli con mod &quot;eth0-work&quot; ipv4.addresses &quot;192.168.20.100/24 192.168.20.1&quot;</span>
+<span class="c1"># nmcli con mod &quot;eth0-work&quot; +ipv4.dns 192.168.20.1</span>
+</pre></div>
+</div>
+<p>Switch to the new connection profile</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con up &quot;eth0-work&quot;</span>
+</pre></div>
+</div>
+<p>Prevent Autostart</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con mod &quot;eth0-work&quot; connection.autoconnect no</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -285,10 +322,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="network-configuration-troubleshooting.html" class="btn btn-neutral float-right" title="network-configuration-troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="routing.html" class="btn btn-neutral float-right" title="routing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../installation/kvm.html" class="btn btn-neutral" title="kvm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="network-configuration-troubleshooting.html" class="btn btn-neutral" title="network-configuration-troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

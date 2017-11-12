@@ -6,4 +6,5 @@ Installation
    :maxdepth: 2
 
    Installation
+   kickstart
    kvm

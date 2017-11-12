@@ -20,6 +20,9 @@ Structured Text Help::
 RHEL Product Documentation::
    https://access.redhat.com/documentation/en/red-hat-enterprise-linux/
 
+Offline documentation besides man pages::
+   /usr/share/doc/
+
 
 .. toctree::
    :maxdepth: 2
@@ -40,6 +43,11 @@ RHEL Product Documentation::
    :maxdepth: 2
 
    commands-collection/index
+
+.. toctree::
+   :maxdepth: 2
+
+   kernel/index
 
 .. toctree::
    :maxdepth: 2
