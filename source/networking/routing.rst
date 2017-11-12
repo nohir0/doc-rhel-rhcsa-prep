@@ -22,6 +22,7 @@ To implement the changes immediately on the local system, run the following comm
 Default Route Configuration
 ----------------------------
 ::
+
    # cat /etc/sysconfig/network
    NETWORKING=yes
    HOSTNAME=testing.example.com
