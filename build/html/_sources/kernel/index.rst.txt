@@ -25,12 +25,3 @@ Load Kernel Module Persistent
    # echo "8021q" > /etc/modules-load.d/8021q.conf
    # cat /etc/modules-load.d/8021q.conf 
    8021q
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

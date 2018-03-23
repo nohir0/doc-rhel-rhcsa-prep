@@ -3,6 +3,19 @@ Applications
 #####################
 
 
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :glob:
+   :hidden:
+
+   shell
+   ssh
+   apache
+   vncserver
+   kvm
+
+
 List of applications, that should be present on a system
 ---------------------------------------------------------
 
@@ -20,19 +33,3 @@ man and how to find documentation
 Info Manuals can be found in **/usr/share/info**
 Further extensive documentation can be found here **/usr/share/doc** (content depends on application developer effort)
 
-.. toctree::
-   :maxdepth: 2
-
-   shell
-   ssh
-   apache
-   vncserver
-   kvm
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
