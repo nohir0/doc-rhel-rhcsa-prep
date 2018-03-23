@@ -125,7 +125,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
@@ -137,7 +140,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#static-routes">Static Routes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../networking/routing.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -199,6 +204,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
@@ -396,6 +402,10 @@ To get rid of this wrong VM….</p>
 <span class="c1"># virsh destroy server1.example.com</span>
 <span class="c1"># virsh autostart server1.example.com</span>
 <span class="c1"># virsh autostart --disable tester1.example.com</span>
+</pre></div>
+</div>
+<p>If you have to bring down a virbr interface on host like <strong>virbr0</strong> bridge with ich also used by Oracle Virtualbox:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># sudo virsh net-destroy default</span>
 </pre></div>
 </div>
 </div>

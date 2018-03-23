@@ -26,10 +26,14 @@ How to install Display Manager (GNOME) after initial (minimal) Installation
 ::
 
    # yum group install "Server with GUI"
+   # systemctl get-default
+     multi-user.target
    # systemctl set-default graphical.target
      Removed symlink /etc/systemd/system/default.target.
      Created symlink from /etc/systemd/system/default.target to /usr/lib/systemd/system/graphical.target.
 
+The command systemctl **set-default graphical.target** is important that the GUI starts with system boot.
+It brings the system from runlevel 3 to runlevel 5
 
 
 Indices and tables

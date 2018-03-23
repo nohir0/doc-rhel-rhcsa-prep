@@ -125,7 +125,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
@@ -137,7 +140,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#static-routes">Static Routes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../networking/routing.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -199,6 +204,7 @@
 </li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">yum</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
@@ -307,6 +313,14 @@
 </pre></div>
 </div>
 <p><strong>Hint:</strong> On the RHEL installation media there is a XML file called <strong>/repodata/*-comps-Server-x86_64.xml</strong> where &lt;grouplist&gt; and &lt;optionlist&gt; shows the belonging package information</p>
+</div>
+<div class="section" id="epel-extra-packages-for-enterprise-linux">
+<h2>EPEL - Extra Packages for Enterprise Linux<a class="headerlink" href="#epel-extra-packages-for-enterprise-linux" title="Permalink to this headline">¶</a></h2>
+<p>Quite some packages are not included in standard yum repositories on RHEL, Centor, Fedora, ….
+EPEL is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="o">--</span><span class="n">enablerepo</span><span class="o">=</span><span class="n">extras</span> <span class="n">install</span> <span class="n">epel</span><span class="o">-</span><span class="n">release</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="how-to-setup-a-local-yum-repository-for-locally-mounted-iso">
 <span id="yum-mount-iso-dvd"></span><h2>How to setup a local yum repository for locally mounted ISO<a class="headerlink" href="#how-to-setup-a-local-yum-repository-for-locally-mounted-iso" title="Permalink to this headline">¶</a></h2>

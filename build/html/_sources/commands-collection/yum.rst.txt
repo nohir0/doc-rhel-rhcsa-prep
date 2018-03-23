@@ -13,6 +13,16 @@ Use yum group info::
 **Hint:** On the RHEL installation media there is a XML file called **/repodata/*-comps-Server-x86_64.xml** where <grouplist> and <optionlist> shows the belonging package information
 
 
+
+EPEL - Extra Packages for Enterprise Linux
+--------------------------------------------
+Quite some packages are not included in standard yum repositories on RHEL, Centor, Fedora, ....
+EPEL is a Fedora Special Interest Group that creates, maintains, and manages a high quality set of additional packages.
+::
+
+   yum --enablerepo=extras install epel-release
+
+
 .. _yum-mount-iso-dvd:
 
 How to setup a local yum repository for locally mounted ISO

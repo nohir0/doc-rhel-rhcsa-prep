@@ -91,6 +91,11 @@ VM management from the command line
    # virsh autostart server1.example.com
    # virsh autostart --disable tester1.example.com
 
+If you have to bring down a virbr interface on host like **virbr0** bridge with ich also used by Oracle Virtualbox:
+
+::
+
+   # sudo virsh net-destroy default
 
 
 virt-clone
