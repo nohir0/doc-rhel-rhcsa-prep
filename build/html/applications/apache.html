@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. apache &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  <title>apache &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
         <link rel="up" title="Applications" href="index.html"/>
-        <link rel="next" title="4. vncserver" href="vncserver.html"/>
+        <link rel="next" title="vsftpd" href="vsftpd.html"/>
         <link rel="prev" title="2. ssh" href="ssh.html"/> 
 
   
@@ -160,79 +160,92 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="shell.html">1. shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="shell.html#indices-and-tables">1.4.1. Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ssh.html">2. ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ssh.html#ssh-tunnel">2.1. ssh tunnel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="ssh.html#indices-and-tables">2.1.1. Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">apache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#copy-rhel-cdrom-content-to-webserver-directory">Copy RHEL CDROM content to webserver directory</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vsftpd.html">vsftpd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vsftpd.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vncserver.html">4. vncserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kvm.html">5. kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#mounting-installation-media-for-vm-installation">5.1. Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#important-files-and-directories">5.2. Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#important-commands">5.3. Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#virt-install">5.4. virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#delete-a-vm-from-command-line">5.5. Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#virsh">5.6. virsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kvm.html#virt-clone">5.7. virt-clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kvm.html#indices-and-tables">5.7.1. Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
 <li class="toctree-l2"><a class="reference internal" href="index.html#man-and-how-to-find-documentation">man and how to find documentation</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#further-contents">Further Contents</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="shell.html">1. shell</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="ssh.html">2. ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ssh.html#ssh-tunnel">2.1. ssh tunnel</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">3. apache</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#indices-and-tables">3.1. Indices and tables</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="vncserver.html">4. vncserver</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="kvm.html">5. kvm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#mounting-installation-media-for-vm-installation">5.1. Mounting installation media for VM installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#important-files-and-directories">5.2. Important Files and directories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#important-commands">5.3. Important commands</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#virt-install">5.4. virt-install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#delete-a-vm-from-command-line">5.5. Delete a VM from command line</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#virsh">5.6. virsh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kvm.html#virt-clone">5.7. virt-clone</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../kernel/index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
@@ -286,7 +299,7 @@
         
           <li><a href="index.html">Applications</a> &raquo;</li>
         
-      <li>3. apache</li>
+      <li>apache</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -306,20 +319,28 @@
            <div itemprop="articleBody">
             
   <div class="section" id="apache">
-<h1>3. apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h1>
+<h1>apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h1>
 <p>Installation, Start and Autostart:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># yum -y install httpd</span>
 <span class="c1"># systemctl start httpd</span>
 <span class="c1"># systemctl enable httpd</span>
+<span class="c1"># firewall-cmd --permanent --zone=public --add-service http</span>
+<span class="n">success</span>
+<span class="c1"># firewall-cmd --reload</span>
+<span class="n">success</span>
 </pre></div>
 </div>
+<div class="section" id="copy-rhel-cdrom-content-to-webserver-directory">
+<h2>Copy RHEL CDROM content to webserver directory<a class="headerlink" href="#copy-rhel-cdrom-content-to-webserver-directory" title="Permalink to this headline">¶</a></h2>
+<p>Documented under commands-collection yum: <a class="reference internal" href="../commands-collection/yum.html#yum-copy-cdrom"><span class="std std-ref">How to create a local repository copy from CDROM / ISO e.g. on web server</span></a>.</p>
 <div class="section" id="indices-and-tables">
-<h2>3.1. Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
 <li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
 <li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -333,7 +354,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="vncserver.html" class="btn btn-neutral float-right" title="4. vncserver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="vsftpd.html" class="btn btn-neutral float-right" title="vsftpd" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ssh.html" class="btn btn-neutral" title="2. ssh" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

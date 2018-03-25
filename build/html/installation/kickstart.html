@@ -105,6 +105,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">kickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-example-for-kvm-based-kickstart-installation">Working example for KVM based kickstart installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -125,7 +126,10 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
@@ -137,7 +141,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#static-routes">Static Routes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../networking/routing.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -155,77 +161,93 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html">shell</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">Text Streams and redirection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">ln - Hardlink vs. Softlink</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">sed - Stream Editor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">awk - Aho, Weinberger, and Kernighan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/shell.html">1. shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#indices-and-tables">1.4.1. Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">2. ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">2.1. ssh tunnel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#indices-and-tables">2.1.1. Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html#copy-rhel-cdrom-content-to-webserver-directory">Copy RHEL CDROM content to webserver directory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../applications/apache.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html">vncserver</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/vsftpd.html">vsftpd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vsftpd.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">4. vncserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install-with-kickstart-file">virt-install with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../kernel/index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
@@ -344,6 +366,7 @@
  <span class="c1"># url --url http://192.168.122.1/inst</span>
  <span class="c1"># url --url ftp://192.168.122.1/pub/inst</span>
 
+ <span class="c1"># --&gt; you can also point the install source to an ISO file:</span>
  <span class="c1"># harddrive --partition=/dev/sda10 --dir=/tmp/michael/</span>
 
  <span class="c1"># firstboot --disabled</span>
@@ -351,6 +374,7 @@
  <span class="c1"># keyboard --vckeymap=us --xlayouts=&#39;us&#39;</span>
  <span class="c1"># lang en_US.UTF-8</span>
 
+ <span class="c1"># --&gt; you can use the password from /etc/shadow because it uses same encryption</span>
  <span class="c1"># rootpw --iscrypted $6$5UrLfXTk$CsCW0nQytrUuvycuLT317/</span>
  <span class="c1"># user --groups=wheel name=michael --password=... --iscrypted --gecos=&quot;MJ&quot;</span>
 
@@ -385,7 +409,10 @@ Remove any –onpart directives, otherwise an error occurs during installation</
 <span class="c1">#repo --name=&quot;Red Hat Enterprise Linux&quot; --baseurl=ftp://192.168.122.1/pub/inst --cost=100</span>
 </pre></div>
 </div>
-<p>Package installation:</p>
+<p>Package installation:
+What follows is a list of package groups that are installed through this Kickstart configuration file.
+These names correspond to the names you can find in the *-comps-Server.x86_64.xml file in the RHEL 7 DVD /repodata directory described in Chapter 1.
+Because the list is long, the following is just an excerpt of package groups (which startwith &#64;) and package names</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># %packages</span>
 <span class="c1"># @base</span>
 <span class="c1"># @core</span>
@@ -396,6 +423,89 @@ Remove any –onpart directives, otherwise an error occurs during installation</
 
 <span class="c1"># %post</span>
 <span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="working-example-for-kvm-based-kickstart-installation">
+<h2>Working example for KVM based kickstart installation<a class="headerlink" href="#working-example-for-kvm-based-kickstart-installation" title="Permalink to this headline">¶</a></h2>
+<p>It is important to have an ISO file as CentOS/RHEL source (cdrom passthrough to KVM VM is currently disabled by RH!),
+this is necessary to see the installation screen, it allows to alter the boot parameters (by pressing TAB)
+Second thing is to use “cdrom” as installation media for KVM installation, because network based installation is more complicated.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[root@kvm-server01 ~]# cat /var/www/html/inst/ks.cfg
+#version=DEVEL
+# License agreement
+eula --agreed
+# System authorization information
+auth --enableshadow --passalgo=sha512
+
+# Use CDROM installation media
+cdrom
+# url --url=&quot;http://192.168.122.1/inst&quot;
+
+# Use graphical install
+graphical
+
+# Run the Setup Agent on first boot
+# firstboot --enable
+firstboot --disabled
+
+# System services
+services --disabled=&quot;chronyd&quot;
+
+# Keyboard layouts
+keyboard --vckeymap=at --xlayouts=&#39;at&#39;
+
+# System language
+lang en_US.UTF-8
+
+# ignoredisk --only-use=sda
+
+# Network information
+network  --bootproto=static --device=eth0 --gateway=192.168.100.1 --ip=192.168.100.100 --nameserver=8.8.8.8,192.168.0.237    --netmask=255.255.255.0 --ipv6=auto --activate
+network  --hostname=outsider01.example.com
+
+# Root password
+rootpw --iscrypted $6$GfLy/J6VwAWSFKiS$dNrJLu9a35yEP6bECObKGxCiaFvRojp9H2XHPXu1LwA9WgKUOoI.TEgDE9PJG/7OZ.We2QZ3n./SO.iqXDoOE1
+
+# System timezone
+timezone Europe/Vienna --isUtc --nontp
+
+user --name=gans --password=$6$FlVJvnic8FjzgCT8$kG7kvQ4I2QrbLblLuAZv2X0peeWTFdzUJrq4jdL3W4LSjtsDUvRUUCtDQ4nL9fD2BnXPQQAVpGHUUlwSu0/Zs/    --iscrypted --gecos=&quot;gans&quot;
+
+firewall --service=ssh
+selinux --enforcing
+
+# System bootloader configuration
+bootloader --append=&quot; crashkernel=auto&quot; --location=mbr --boot-drive=vda
+
+# Partition clearing information
+clearpart --all --initlabel --drives=vda
+
+# Disk partitioning information
+part pv.01 --fstype=&quot;lvmpv&quot; --ondisk=vda --size=13523
+part /boot --fstype=&quot;xfs&quot; --ondisk=vda --size=953
+part swap --fstype=&quot;swap&quot; --ondisk=vda --size=1907
+volgroup centos --pesize=4096 pv.01
+logvol /  --fstype=&quot;xfs&quot; --size=9536 --name=root --vgname=centos
+logvol /home  --fstype=&quot;xfs&quot; --size=3979 --name=home --vgname=centos
+
+# repo --name=myrepo --baseurl=http://192.168.122.1/inst
+
+shutdown
+
+%packages
+@base
+@core
+%end
+
+%addon com_redhat_kdump --enable --reserve-mb=auto
+%end
+
+%anaconda
+pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end
 </pre></div>
 </div>
 </div>

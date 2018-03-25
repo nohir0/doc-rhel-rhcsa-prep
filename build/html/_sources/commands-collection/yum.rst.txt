@@ -13,6 +13,18 @@ Use yum group info::
 **Hint:** On the RHEL installation media there is a XML file called **/repodata/*-comps-Server-x86_64.xml** where <grouplist> and <optionlist> shows the belonging package information
 
 
+.. _yum-copy-cdrom:
+
+How to create a local repository copy from CDROM / ISO e.g. on web server
+---------------------------------------------------------------------------
+
+::
+
+   mkdir /var/www/html/inst
+   chcon -R --reference=/var/www/html /var/www/html/inst
+   cp -a /media/. /var/www/html/inst/
+
+
 
 EPEL - Extra Packages for Enterprise Linux
 --------------------------------------------

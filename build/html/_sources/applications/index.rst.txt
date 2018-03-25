@@ -12,6 +12,7 @@ Applications
    shell
    ssh
    apache
+   vsftpd
    vncserver
    kvm
 

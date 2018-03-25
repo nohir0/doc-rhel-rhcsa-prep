@@ -52,6 +52,7 @@ Installation source:
    # url --url http://192.168.122.1/inst
    # url --url ftp://192.168.122.1/pub/inst
 
+   # --> you can also point the install source to an ISO file:
    # harddrive --partition=/dev/sda10 --dir=/tmp/michael/
 
    # firstboot --disabled
@@ -59,6 +60,7 @@ Installation source:
    # keyboard --vckeymap=us --xlayouts='us'
    # lang en_US.UTF-8
 
+   # --> you can use the password from /etc/shadow because it uses same encryption
    # rootpw --iscrypted $6$5UrLfXTk$CsCW0nQytrUuvycuLT317/
    # user --groups=wheel name=michael --password=... --iscrypted --gecos="MJ"
 
@@ -94,7 +96,12 @@ Remove any --onpart directives, otherwise an error occurs during installation
 
    #repo --name="Red Hat Enterprise Linux" --baseurl=ftp://192.168.122.1/pub/inst --cost=100
 
+
 Package installation:
+What follows is a list of package groups that are installed through this Kickstart configuration file.
+These names correspond to the names you can find in the \*-comps-Server.x86_64.xml file in the RHEL 7 DVD /repodata directory described in Chapter 1.
+Because the list is long, the following is just an excerpt of package groups (which startwith @) and package names
+
 ::
 
    # %packages
@@ -107,6 +114,93 @@ Package installation:
 
    # %post
    # ...
+
+
+
+Working example for KVM based kickstart installation
+-----------------------------------------------------
+
+It is important to have an ISO file as CentOS/RHEL source (cdrom passthrough to KVM VM is currently disabled by RH!),
+this is necessary to see the installation screen, it allows to alter the boot parameters (by pressing TAB)
+Second thing is to use "cdrom" as installation media for KVM installation, because network based installation is more complicated.
+
+::
+
+   [root@kvm-server01 ~]# cat /var/www/html/inst/ks.cfg 
+   #version=DEVEL
+   # License agreement
+   eula --agreed
+   # System authorization information
+   auth --enableshadow --passalgo=sha512
+   
+   # Use CDROM installation media
+   cdrom
+   # url --url="http://192.168.122.1/inst"
+   
+   # Use graphical install
+   graphical
+   
+   # Run the Setup Agent on first boot
+   # firstboot --enable
+   firstboot --disabled
+   
+   # System services
+   services --disabled="chronyd"
+   
+   # Keyboard layouts
+   keyboard --vckeymap=at --xlayouts='at'
+   
+   # System language
+   lang en_US.UTF-8
+   
+   # ignoredisk --only-use=sda
+   
+   # Network information
+   network  --bootproto=static --device=eth0 --gateway=192.168.100.1 --ip=192.168.100.100 --nameserver=8.8.8.8,192.168.0.237    --netmask=255.255.255.0 --ipv6=auto --activate   
+   network  --hostname=outsider01.example.com   
+   
+   # Root password
+   rootpw --iscrypted $6$GfLy/J6VwAWSFKiS$dNrJLu9a35yEP6bECObKGxCiaFvRojp9H2XHPXu1LwA9WgKUOoI.TEgDE9PJG/7OZ.We2QZ3n./SO.iqXDoOE1
+   
+   # System timezone
+   timezone Europe/Vienna --isUtc --nontp
+   
+   user --name=gans --password=$6$FlVJvnic8FjzgCT8$kG7kvQ4I2QrbLblLuAZv2X0peeWTFdzUJrq4jdL3W4LSjtsDUvRUUCtDQ4nL9fD2BnXPQQAVpGHUUlwSu0/Zs/    --iscrypted --gecos="gans"   
+   
+   firewall --service=ssh
+   selinux --enforcing
+   
+   # System bootloader configuration
+   bootloader --append=" crashkernel=auto" --location=mbr --boot-drive=vda
+   
+   # Partition clearing information
+   clearpart --all --initlabel --drives=vda
+   
+   # Disk partitioning information
+   part pv.01 --fstype="lvmpv" --ondisk=vda --size=13523
+   part /boot --fstype="xfs" --ondisk=vda --size=953
+   part swap --fstype="swap" --ondisk=vda --size=1907
+   volgroup centos --pesize=4096 pv.01
+   logvol /  --fstype="xfs" --size=9536 --name=root --vgname=centos
+   logvol /home  --fstype="xfs" --size=3979 --name=home --vgname=centos
+   
+   # repo --name=myrepo --baseurl=http://192.168.122.1/inst
+   
+   shutdown
+   
+   %packages
+   @base
+   @core
+   %end
+   
+   %addon com_redhat_kdump --enable --reserve-mb=auto
+   %end
+   
+   %anaconda
+   pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+   pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+   pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+   %end
 
 
 

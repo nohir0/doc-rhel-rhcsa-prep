@@ -58,6 +58,26 @@ because there is a configuration file and virtual disk.
 To get rid of this wrong VM....
 
 
+
+virt-install with kickstart file
+----------------------------------
+For Kickstart installations described later in this chapter, the virt-install command can be
+used to cite a Kickstart configuration file.
+
+::
+
+   --extra-args="ks=ftp://192.168.122.1/pub/ks1.cfg"
+
+Example:
+::
+
+   # virt-install -n outsider1.example.org -r 1024 --disk \
+   path=/var/lib/libvirt/images/outsider1.example.org.img,size=16 \
+   -l ftp://192.168.122.1/pub/inst \
+   -x ks=ftp://192.168.122.1/pub/ks1.cfg
+
+
+
 Delete a VM from command line
 ------------------------------
 
