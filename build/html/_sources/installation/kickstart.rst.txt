@@ -160,12 +160,12 @@ Second thing is to use "cdrom" as installation media for KVM installation, becau
    network  --hostname=outsider01.example.com   
    
    # Root password
-   rootpw --iscrypted $6$GfLy/J6VwAWSFKiS$dNrJLu9a35yEP6bECObKGxCiaFvRojp9H2XHPXu1LwA9WgKUOoI.TEgDE9PJG/7OZ.We2QZ3n./SO.iqXDoOE1
+   rootpw --iscrypted $6$GfLyBLABLABLA
    
    # System timezone
    timezone Europe/Vienna --isUtc --nontp
    
-   user --name=gans --password=$6$FlVJvnic8FjzgCT8$kG7kvQ4I2QrbLblLuAZv2X0peeWTFdzUJrq4jdL3W4LSjtsDUvRUUCtDQ4nL9fD2BnXPQQAVpGHUUlwSu0/Zs/    --iscrypted --gecos="gans"   
+   user --name=user1 --password=$6$FlVBBLABLABLA    --iscrypted --gecos="user1"   
    
    firewall --service=ssh
    selinux --enforcing
