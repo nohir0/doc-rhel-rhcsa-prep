@@ -2,7 +2,6 @@
 Applications
 #####################
 
-
 .. toctree::
    :maxdepth: 2
    :titlesonly:
@@ -15,7 +14,6 @@ Applications
    vsftpd
    vncserver
    kvm
-
 
 List of applications, that should be present on a system
 ---------------------------------------------------------
@@ -33,4 +31,3 @@ man and how to find documentation
 **whatis** and **apropos** can search for man files on different contexts | topics.
 Info Manuals can be found in **/usr/share/info**
 Further extensive documentation can be found here **/usr/share/doc** (content depends on application developer effort)
-

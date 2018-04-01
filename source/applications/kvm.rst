@@ -58,7 +58,6 @@ because there is a configuration file and virtual disk.
 To get rid of this wrong VM....
 
 
-
 virt-install with kickstart file
 ----------------------------------
 For Kickstart installations described later in this chapter, the virt-install command can be
@@ -76,6 +75,14 @@ Example:
    -l ftp://192.168.122.1/pub/inst \
    -x ks=ftp://192.168.122.1/pub/ks1.cfg
 
+Working example from my lab with kickstart file.
+**Important:** It only worked with an ISO image as install source location !
+::
+
+   virt-install --name server2.example.com --memory 1024 --vcpus 2 \
+   --disk /kvm/images/server2.example.com.img,size=16 \
+   --location /media/iso/CentOS-7-x86_64-Everything-1708.iso --os-type linux --os-variant rhel7 \
+   --network default --extra-args ks=http://192.168.122.1/inst/ks.cfg
 
 
 Delete a VM from command line

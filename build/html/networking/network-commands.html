@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html">kickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#working-example-for-kvm-based-kickstart-installation">Working example for KVM based kickstart installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html#indices-and-tables">Indices and tables</a></li>
@@ -125,19 +126,27 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Networking</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">network-commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#network-manager">Network Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-manipulate-network-adapter">Configure | Manipulate Network Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-manager">Network Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graphical-networking-user-interfaces">Graphical Networking User Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-connection-directives">Network Connection Directives</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="routing.html">routing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="routing.html#static-routes">Static Routes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="routing.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -155,77 +164,93 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html">shell</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">Text Streams and redirection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">ln - Hardlink vs. Softlink</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">sed - Stream Editor</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">awk - Aho, Weinberger, and Kernighan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/shell.html">1. shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#indices-and-tables">1.4.1. Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">2. ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">2.1. ssh tunnel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#indices-and-tables">2.1.1. Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html#copy-rhel-cdrom-content-to-webserver-directory">Copy RHEL CDROM content to webserver directory</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../applications/apache.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html">vncserver</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/vsftpd.html">vsftpd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vsftpd.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/vncserver.html">4. vncserver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install-with-kickstart-file">virt-install with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../commands-collection/index.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../kernel/index.html#indices-and-tables">Indices and tables</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
@@ -323,6 +348,15 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="configure-manipulate-network-adapter">
+<h2>Configure | Manipulate Network Adapter<a class="headerlink" href="#configure-manipulate-network-adapter" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ip</span> <span class="n">addr</span> <span class="n">add</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">122.150</span><span class="o">/</span><span class="mi">24</span> <span class="n">dev</span> <span class="n">eth0</span>
+<span class="n">ip</span> <span class="n">addr</span> <span class="n">flush</span> <span class="n">dev</span> <span class="n">eth0</span>
+<span class="n">ip</span> <span class="n">link</span> <span class="nb">set</span> <span class="n">dev</span> <span class="n">eth0</span> <span class="n">up</span> <span class="o">|</span> <span class="n">down</span>
+<span class="n">ip</span> <span class="n">link</span> <span class="nb">set</span> <span class="n">dev</span> <span class="n">eth0</span> <span class="n">promisc</span> <span class="n">on</span> <span class="o">|</span> <span class="n">off</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="network-manager">
 <h2>Network Manager<a class="headerlink" href="#network-manager" title="Permalink to this headline">¶</a></h2>
 <blockquote>
@@ -332,6 +366,10 @@
 <li><strong>nm-connection-editor</strong> GTK3 based tool</li>
 </ul>
 </div></blockquote>
+<p>Check if it is running</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">status</span> <span class="n">NetworkManager</span>
+</pre></div>
+</div>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con show</span>
 <span class="n">NAME</span>    <span class="n">UUID</span>                                  <span class="n">TYPE</span>            <span class="n">DEVICE</span>
 <span class="n">ens192</span>  <span class="mi">25946</span><span class="n">d9c</span><span class="o">-</span><span class="n">b79c</span><span class="o">-</span><span class="mi">415</span><span class="n">d</span><span class="o">-</span><span class="mf">97e0</span><span class="o">-</span><span class="mi">638</span><span class="n">bc017c62d</span>  <span class="mi">802</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">ethernet</span>  <span class="n">ens192</span>
@@ -344,14 +382,35 @@
 <span class="c1"># nmcli con mod &quot;eth0-work&quot; +ipv4.dns 192.168.20.1</span>
 </pre></div>
 </div>
+<p>Notify NetworkManager about changes in config files</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">con</span> <span class="n">reload</span>
+<span class="n">nmcli</span> <span class="n">con</span> <span class="n">down</span> <span class="n">eth0</span>
+<span class="n">nmcli</span> <span class="n">con</span> <span class="n">up</span> <span class="n">eth0</span>
+</pre></div>
+</div>
 <p>Switch to the new connection profile</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con up &quot;eth0-work&quot;</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">nmcli</span> <span class="n">con</span> <span class="n">up</span> <span class="s2">&quot;eth0-work&quot;</span>
+<span class="n">nmcli</span> <span class="n">dev</span> <span class="n">status</span>
 </pre></div>
 </div>
 <p>Prevent Autostart</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># nmcli con mod &quot;eth0-work&quot; connection.autoconnect no</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="graphical-networking-user-interfaces">
+<h2>Graphical Networking User Interfaces<a class="headerlink" href="#graphical-networking-user-interfaces" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>nmtui</li>
+<li>nm-connection-editor</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="network-connection-directives">
+<h2>Network Connection Directives<a class="headerlink" href="#network-connection-directives" title="Permalink to this headline">¶</a></h2>
+<p>These directives can be configured in interface scripts</p>
+<img alt="../_images/rhel_network-connection-directives.png" src="../_images/rhel_network-connection-directives.png" />
 <div class="section" id="indices-and-tables">
 <h3>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">

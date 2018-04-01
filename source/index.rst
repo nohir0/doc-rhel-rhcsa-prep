@@ -32,6 +32,7 @@ Offline documentation besides man pages::
    applications/index
    commands-collection/index
    kernel/index
+   security/index
    help/Help
 
 

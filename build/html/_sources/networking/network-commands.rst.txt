@@ -34,12 +34,31 @@ ifconfig | arp | netstat | route are "obsolete"
    # ss -tuna4
 
 
+Configure | Manipulate Network Adapter
+-----------------------------------------
+
+::
+
+   ip addr add 192.168.122.150/24 dev eth0
+   ip addr flush dev eth0
+   ip link set dev eth0 up | down
+   ip link set dev eth0 promisc on | off
+
+
+
 Network Manager
 ----------------
 
    * **nmcli** command line tool
    * **nmtui** text based graphical tool
    * **nm-connection-editor** GTK3 based tool
+
+Check if it is running
+
+::
+
+   systemctl status NetworkManager
+
 
 ::
 
@@ -54,16 +73,39 @@ Network Manager
    # nmcli con mod "eth0-work" ipv4.addresses "192.168.20.100/24 192.168.20.1"
    # nmcli con mod "eth0-work" +ipv4.dns 192.168.20.1
 
+
+Notify NetworkManager about changes in config files
+::
+
+   nmcli con reload
+   nmcli con down eth0
+   nmcli con up eth0
+
 Switch to the new connection profile
 ::
 
-   # nmcli con up "eth0-work"
+   nmcli con up "eth0-work"
+   nmcli dev status
 
 Prevent Autostart
 ::
 
    # nmcli con mod "eth0-work" connection.autoconnect no
 
+
+Graphical Networking User Interfaces
+-------------------------------------
+
+   * nmtui
+   * nm-connection-editor
+
+
+Network Connection Directives
+-----------------------------
+
+These directives can be configured in interface scripts
+
+.. image:: images/rhel_network-connection-directives.png
 
 
 

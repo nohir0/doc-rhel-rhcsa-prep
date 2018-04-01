@@ -1,0 +1,554 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>firewall &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Security" href="index.html"/>
+        <link rel="next" title="encryption" href="encryption.html"/>
+        <link rel="prev" title="permissions" href="permissions.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Red Hat Enterprise RHCSA | RHCSE Preparation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/Installation.html">CentOs Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#force-text-setup">Force Text Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../installation/Installation.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html">kickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#working-example-for-kvm-based-kickstart-installation">Working example for KVM based kickstart installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#move-kvm-storage-location-to-another-place">Move KVM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#file-permission-issues-when-changing-the-vm-storage-location-to-another-place">File permission issues when changing the VM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#application-documentation-admin-usertasks-a-s-o">Application documentation - admin, usertasks a.s.o</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../installation/kvm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#configure-manipulate-network-adapter">Configure | Manipulate Network Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-manager">Network Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#graphical-networking-user-interfaces">Graphical Networking User Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-connection-directives">Network Connection Directives</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-commands.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#static-routes">Static Routes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/routing.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/dns.html">dns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/dns.html#etc-nsswitch-conf">/etc/nsswitch.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/dns.html#hostname">Hostname</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/dns.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html">1. shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#basic-encrypted-communication">Basic Encrypted Communication</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/apache.html#copy-rhel-cdrom-content-to-webserver-directory">Copy RHEL CDROM content to webserver directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vsftpd.html">vsftpd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/vsftpd.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html">4. vncserver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install-with-kickstart-file">virt-install with kickstart file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Security</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="permissions.html">permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#chmod">chmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#special-permission-bits">Special Permission Bits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#file-attributes">File Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#umask">UMASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#access-control-lists">Access Control Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#manage-acls-on-a-file">Manage ACLs on a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#default-acls">Default ACLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="permissions.html#acl-and-masks">ACL and Masks</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">firewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-firewalld-service">The firewalld Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../help/Help.html#further-help">Further Help</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Enterprise RHCSA | RHCSE Preparation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Security</a> &raquo;</li>
+        
+      <li>firewall</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/security/firewall.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="firewall">
+<h1>firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h1>
+<p>Firewall status</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">status</span> <span class="n">firewalld</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">iptables</span> <span class="o">-</span><span class="n">L</span>
+</pre></div>
+</div>
+<p>The iptables tool is the basic foundation that is used by other services to manage system
+firewall rules. RHEL 7 comes with two such services: the new firewalld daemon and the
+iptables service, which was included with the previous releases of Red Hat Enterprise Linux.
+You can interact with firewalld using the graphical utility <strong>firewall-config</strong> or the command-
+line client <strong>firewall-cmd</strong>.</p>
+<p>The iptables and firewalld services both rely on the Netfilter system within the Linux kernel
+to filter packets. However, whereas <strong>iptables</strong> is based on the concept of “chain of filter rules” to
+block or forward traffic, firewalld is “zone-based,” as you will see in the next sections.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">iptables</span> <span class="o">-</span><span class="n">t</span> <span class="n">tabletype</span> <span class="o">&lt;</span><span class="n">action_direction</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">packet_pattern</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">j</span> <span class="o">&lt;</span><span class="n">what_to_do</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>tabletype</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>filter  Sets a rule for filtering packets.</li>
+<li>nat  Configures network address translation, also known as masquerading</li>
+</ul>
+</div></blockquote>
+<p><strong>action_direction</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>-A (–append)  Appends a rule to the end of a chain.</li>
+<li>-D (–delete)  Deletes a rule from a chain. Specify the rule by the number or the packet pattern.</li>
+<li>-L (–list)  Lists the currently configured rules in the chain.</li>
+<li>-F (–flush)  Flushes all the rules in the current iptables chain.</li>
+</ul>
+</div></blockquote>
+<p>If you’re appending to (-A) or deleting from (-D) a chain, you’ll want to apply it to
+network data traveling in one of three directions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>INPUT  All incoming packets are checked against the rules in this chain.</li>
+<li>OUTPUT  All outgoing packets are checked against the rules in this chain.</li>
+<li>FORWARD  All packets received from a computer and being sent to another computer are checked against the rules in this chain.
+In other words, these are packets that are routed through the local server.</li>
+</ul>
+</div></blockquote>
+<p><strong>packet_pattern</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>-s ip_address  All packets are checked for a specific source IP address.</li>
+<li>-d ip_address  All packets are checked for a specific destination IP address.</li>
+</ul>
+</div></blockquote>
+<p>Packet patterns can be more complex. In TCP/IP, packets are transported using the
+TCP, UDP, or ICMP protocol. You can specify the protocol with the -p switch, followed by
+the destination port (–dport). For example, the -p tcp –dport 80 extension affects users
+outside your network who are trying to make an HTTP connection.</p>
+<p><strong>what_to_do</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>DROP  The packet is dropped. No message is sent to the requesting computer.</li>
+<li>REJECT  The packet is dropped. An error message is sent to the requesting computer.</li>
+<li>ACCEPT  The packet is allowed to proceed as specified with the -A action: INPUT, OUTPUT, or FORWARD.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="the-firewalld-service">
+<h2>The firewalld Service<a class="headerlink" href="#the-firewalld-service" title="Permalink to this headline">¶</a></h2>
+<p>The firewalld service offers the same functionalities of the iptables tool and more. One
+of the new features of firewalld is zone-based firewalling. In a zone-based firewall, networks
+and interfaces are grouped into zones, with each zone configured with a different level of
+trust. The zones defined in firewalld are listed in Table 4-8, along with their default behavior
+for outgoing and incoming connections.</p>
+<p>A zone is made up of a group of source network addresses and interfaces, plus
+the rules to process the packets that match those source addresses and network
+interfaces.</p>
+<img alt="../_images/rhel_zones_firewalld.png" src="../_images/rhel_zones_firewalld.png" />
+<p>The Zone tab includes all the zones previously listed.
+When an incoming packet hits the firewall, its source address is checked for a match with the network addresses
+that belong to the existing zones. If no match is found, the incoming interface of the packet
+is checked to verify whether it belongs to a zone. Once a correspondence is found, the
+packet is processed according to the rules of the zone it has been matched to.</p>
+<p>If you switch the <strong>firewall-config</strong> tool into Permanent mode, you can add new services
+or edit existing ones. To accomplish this task, scroll to the bottom of the Services window
+and click the corresponding icon to remove, add, or edit a service. If desired, you can also
+configure custom ports for an existing service by clicking the Add or Edit icon</p>
+<p><strong>The Console firewall-cmd Configuration Tool</strong></p>
+<p>The firewall-cmd configuration tool has the same features and services as the corresponding
+GUI tool. In fact, both the graphical firewall-config tool and the command interface
+firewall-cmd are just client front ends that communicate to the underlying firewalld daemon.</p>
+<p>As with the GUI tool, <strong>firewall-cmd</strong> can display all the available zones and switch to a
+different default zone. In the following example, the default zone is changed from the public
+to the internal zone:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># firewall-cmd --get-default-zone</span>
+<span class="n">public</span>
+<span class="c1"># firewall-cmd --set-default-zone=internal</span>
+<span class="n">success</span>
+<span class="c1"># firewall-cmd --get-default-zone</span>
+<span class="n">internal</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>The option <strong>–list-all</strong> is particularly useful. It lists all the configured interfaces and
+services allowed through a zone, as illustrated next:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="p">(</span><span class="n">active</span><span class="p">)</span>
+  <span class="n">target</span><span class="p">:</span> <span class="n">default</span>
+  <span class="n">icmp</span><span class="o">-</span><span class="n">block</span><span class="o">-</span><span class="n">inversion</span><span class="p">:</span> <span class="n">no</span>
+  <span class="n">interfaces</span><span class="p">:</span> <span class="n">ens192</span>
+  <span class="n">sources</span><span class="p">:</span>
+  <span class="n">services</span><span class="p">:</span> <span class="n">ssh</span> <span class="n">dhcpv6</span><span class="o">-</span><span class="n">client</span> <span class="n">http</span> <span class="n">ftp</span> <span class="n">vnc</span><span class="o">-</span><span class="n">server</span>
+  <span class="n">ports</span><span class="p">:</span>
+  <span class="n">protocols</span><span class="p">:</span>
+  <span class="n">masquerade</span><span class="p">:</span> <span class="n">no</span>
+  <span class="n">forward</span><span class="o">-</span><span class="n">ports</span><span class="p">:</span>
+  <span class="n">source</span><span class="o">-</span><span class="n">ports</span><span class="p">:</span>
+  <span class="n">icmp</span><span class="o">-</span><span class="n">blocks</span><span class="p">:</span>
+  <span class="n">rich</span> <span class="n">rules</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>As with many of the firewall-cmd command options, the default zone is assumed if no zone is specified with the –zone command switch.
+You can add and remove ports and services from a zone with the <strong>–add-port, –add-service, –remove-port, and –remove-service</strong>
+switches, respectively.
+The next example enables the http service for traffic hitting the dmz zone:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># firewall-cmd --zone=dmz --add-service=http</span>
+<span class="n">success</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>By default, all configuration changes made by <strong>firewall-cmd</strong> do not survive a server
+reboot. To make a change that survives a reboot, add the <strong>–permanent</strong> switch to firewall-cmd.
+Then, run firewall-cmd –reload to implement the change immediately.</p>
+<p>Return to the original system. Run the following commands to install and start the telnet service:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">install</span> <span class="n">telnet</span><span class="o">-</span><span class="n">server</span>
+<span class="n">systemctl</span> <span class="n">start</span> <span class="n">telnet</span><span class="o">.</span><span class="n">socket</span>
+</pre></div>
+</div>
+<p><strong>Example Firewall configuration</strong></p>
+<p>Run the following command to show the current settings for the default zone:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="nb">list</span><span class="o">-</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>Allow telnet traffic through the default zone. Don’t forget the –permanent switch to make the change persistent:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">service</span><span class="o">=</span><span class="n">telnet</span>
+</pre></div>
+</div>
+<p>Apply the previous change to the run-time configuration of the firewall:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">reload</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="encryption.html" class="btn btn-neutral float-right" title="encryption" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="permissions.html" class="btn btn-neutral" title="permissions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Herwig Gans.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

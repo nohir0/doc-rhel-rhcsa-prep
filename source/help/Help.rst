@@ -10,10 +10,3 @@ Further Help
 
 Ask herwig.gans@gmail.com for help
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>permissions &mdash; Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Red Hat Enterprise RHCSA | RHCSE Preparation 0.0.1 documentation" href="../index.html"/>
+        <link rel="up" title="Security" href="index.html"/>
+        <link rel="next" title="firewall" href="firewall.html"/>
+        <link rel="prev" title="Security" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Red Hat Enterprise RHCSA | RHCSE Preparation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/Installation.html">CentOs Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#force-text-setup">Force Text Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-setup-a-local-yum-repository-for-locally-mounted-dvd-iso">How to setup a local yum repository for locally mounted DVD/ISO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/Installation.html#how-to-install-display-manager-gnome-after-initial-minimal-installation">How to install Display Manager (GNOME) after initial (minimal) Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../installation/Installation.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html">kickstart</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#working-example-for-kvm-based-kickstart-installation">Working example for KVM based kickstart installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html#indices-and-tables">Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#does-my-cpu-support-virtualization-and-is-it-enabled-in-bios-uefi">Does my CPU support Virtualization and is it enabled in BIOS / UEFI?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#how-to-run-nested-kvm-within-vmware-esxi-5-5">How to run nested KVM within VMWare ESXi (5.5)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#packages-to-install-for-kvm-in-rhel">Packages to install for KVM in RHEL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#move-kvm-storage-location-to-another-place">Move KVM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#file-permission-issues-when-changing-the-vm-storage-location-to-another-place">File permission issues when changing the VM Storage location to another place</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kvm.html#application-documentation-admin-usertasks-a-s-o">Application documentation - admin, usertasks a.s.o</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../installation/kvm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html">network-configuration-troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#configuring-vlan-trunk-with-sub-interfaces">Configuring VLAN Trunk With Sub-Interfaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-configuration-troubleshooting.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#configure-manipulate-network-adapter">Configure | Manipulate Network Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-manager">Network Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#graphical-networking-user-interfaces">Graphical Networking User Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-connection-directives">Network Connection Directives</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/network-commands.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/routing.html">routing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#how-to-enable-routing-permanently">How to enable routing permanently</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#default-route-configuration">Default Route Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/routing.html#static-routes">Static Routes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/routing.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../networking/dns.html">dns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/dns.html#etc-nsswitch-conf">/etc/nsswitch.conf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/dns.html#hostname">Hostname</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../networking/dns.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#list-of-applications-that-should-be-present-on-a-system">List of applications, that should be present on a system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/index.html#man-and-how-to-find-documentation">man and how to find documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/shell.html">1. shell</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#text-streams-and-redirection">1.1. Text Streams and redirection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#ln-hardlink-vs-softlink">1.2. ln - Hardlink vs. Softlink</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#sed-stream-editor">1.3. sed - Stream Editor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/shell.html#awk-aho-weinberger-and-kernighan">1.4. awk - Aho, Weinberger, and Kernighan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html">2. ssh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">2.1. ssh tunnel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/apache.html">apache</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/apache.html#copy-rhel-cdrom-content-to-webserver-directory">Copy RHEL CDROM content to webserver directory</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vsftpd.html">vsftpd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/vsftpd.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html">4. vncserver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-install-with-kickstart-file">virt-install with kickstart file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../commands-collection/index.html">Commands Collection</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands-collection/index.html#find-out-linux-distribution-and-version">Find Out Linux Distribution And Version</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/dd.html">dd</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/dd.html#dd-copy">dd copy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/yum.html">yum</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-iso">How to setup a local yum repository for locally mounted ISO</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/yum.html#how-to-setup-a-local-yum-repository-for-locally-mounted-cdrom-dvd">How to setup a local yum repository for locally mounted CDROM/DVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/rpm.html">rpm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/rpm.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/mount.html">mount</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/mount.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../commands-collection/ssh.html">ssh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../commands-collection/ssh.html#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Security</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#chmod">chmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#special-permission-bits">Special Permission Bits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-attributes">File Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#umask">UMASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-control-lists">Access Control Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manage-acls-on-a-file">Manage ACLs on a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-acls">Default ACLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acl-and-masks">ACL and Masks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="firewall.html">firewall</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../help/Help.html#further-help">Further Help</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Red Hat Enterprise RHCSA | RHCSE Preparation</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Security</a> &raquo;</li>
+        
+      <li>permissions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/security/permissions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="permissions">
+<h1>permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="chmod">
+<h2>chmod<a class="headerlink" href="#chmod" title="Permalink to this headline">¶</a></h2>
+<p>The chmod command uses the numeric value of permissions associated with the owner,
+group, and others. In Linux, permissions are assigned the following numeric values: r = 4,
+w = 2, and x = 1. In numerical format, permissions are represented by an octal number,
+where each digit is associated with a different group of permissions. For example, the
+permission number 640 means that the owner is assigned permission 6 (read and write),
+whereas the group has permission 4 (read), and everyone else has no permissions.</p>
+</div>
+<div class="section" id="special-permission-bits">
+<h2>Special Permission Bits<a class="headerlink" href="#special-permission-bits" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/rhel-special-file-permission-bits.png" src="../_images/rhel-special-file-permission-bits.png" />
+<p>For the SUID, SGID, and sticky bits, some special options are available. If you choose to
+use numeric bits, those special bits are assigned numeric values as well, where SUID = 4,
+SGID = 2, and sticky bit = 1. For example, the following command configures the SUID bit
+(with the first “4” digit in permission mode). It includes rwx permissions for the user owner
+(with the “7”), rw permissions for the group owner (with the “6”), and r permission for other
+users (with the last “4”) on the file named testfile:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="mi">4764</span> <span class="n">testfile</span>
+</pre></div>
+</div>
+<p>If you’d rather use the ugo/rwx format, the following command activates the SGID bit for
+the local testscript file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">g</span><span class="o">+</span><span class="n">s</span> <span class="n">testscript</span>
+</pre></div>
+</div>
+<p>And the following command turns on the sticky bit for the /test directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="n">o</span><span class="o">+</span><span class="n">t</span> <span class="o">/</span><span class="n">test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="file-attributes">
+<h2>File Attributes<a class="headerlink" href="#file-attributes" title="Permalink to this headline">¶</a></h2>
+<p>The following command protects /etc/fstab from accidental deletion, even by the root
+administrative user:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chattr</span> <span class="o">+</span><span class="n">i</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
+</pre></div>
+</div>
+<p>With that attribute, if you try to delete the file as the root administrative user, you’ll get
+the following response:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>rm /etc/fstab
+rm: remove regular file &#39;/etc/fstab&#39;? y
+rm: cannot remove &#39;/etc/fstab&#39;: Operation not permitted
+</pre></div>
+</div>
+<p>The lsattr command shows an active immutable attribute on /etc/fstab:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lsattr</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
+<span class="o">----</span><span class="n">i</span><span class="o">-----------</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
+</pre></div>
+</div>
+<img alt="../_images/rhel-file-attributes.png" src="../_images/rhel-file-attributes.png" />
+<p>Several key attributes are described in Table 4-4. Other attributes, such as c (compressed),
+s (secure deletion), and u (undeletable), don’t work for files stored in the ext4 and XFS
+filesystems. The extent format attribute is associated with ext4 systems.</p>
+</div>
+<div class="section" id="umask">
+<h2>UMASK<a class="headerlink" href="#umask" title="Permalink to this headline">¶</a></h2>
+<p>Explain Octal umask Mode 022 And 002</p>
+<p>If the default settings are not changed, files are created with the access mode 666 and directories with 777.
+In this example:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The default umask 002 used for normal user. With this mask default directory permissions are 775 and default file permissions are 664.</li>
+<li>The default umask for the root user is 022 result into default directory permissions are 755 and default file permissions are 644.</li>
+<li>For directories, the base permissions are (rwxrwxrwx) 0777 and for files they are 0666 (rw-rw-rw).</li>
+</ul>
+</div></blockquote>
+<p>In short:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A umask of 022 allows only you to write data, but anyone can read data.</li>
+<li>A umask of 077 is good for a completely private system. No other user can read or write your data if umask is set to 077.</li>
+<li>A umask of 002 is good when you share data with other users in the same group. Members of your group can create and modify data files; those outside your group can read data file, but cannot modify it. Set your umask to 007 to completely exclude users who are not group members.</li>
+</ul>
+</div></blockquote>
+<p><strong>Calculating The Final Permission For FILES</strong></p>
+<dl class="docutils">
+<dt>You can simply subtract the umask from the base permissions to determine the final permission for file as follows:</dt>
+<dd><ul class="first last simple">
+<li>666 – 022 = 644</li>
+<li>File base permissions : 666</li>
+<li>umask value : 022</li>
+<li>subtract to get permissions of new file (666-022) : 644 (rw-r–r–)</li>
+</ul>
+</dd>
+</dl>
+<p><strong>Default UMASK</strong></p>
+<p>With that in mind, the default umask is driven by the /etc/profile and /etc/bashrc files,
+specifically the following stanza, which drives a value for umask depending on the value of
+the UID:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>if [ $UID -gt 199 ] &amp;&amp; [ &quot;`id -gn`&quot; = &quot;`id -un`&quot; ]; then
+   umask 002
+else
+   umask 022
+fi
+</pre></div>
+</div>
+</div>
+<div class="section" id="access-control-lists">
+<h2>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline">¶</a></h2>
+<p>ACLs are supported on ext4 and XFS filesystems, as well as on the Network File System
+(NFS) version 4.</p>
+<p><strong>The getfacl Command</strong></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">root</span><span class="nd">@server1</span> <span class="o">~</span><span class="p">]</span><span class="c1"># getfacl anaconda-ks.cfg</span>
+<span class="c1"># file: anaconda-ks.cfg</span>
+<span class="c1"># owner: root</span>
+<span class="c1"># group: root</span>
+<span class="n">user</span><span class="p">::</span><span class="n">rw</span><span class="o">-</span>
+<span class="n">group</span><span class="p">::</span><span class="o">---</span>
+<span class="n">other</span><span class="p">::</span><span class="o">---</span>
+</pre></div>
+</div>
+<p><strong>Make a Filesystem ACL Friendly</strong></p>
+<p>RHEL 7 uses the XFS filesystem. When you create an XFS or an ext2/ext3/ext4 filesystem
+on RHEL 7, ACLs are enabled by default. On the other hand, ext2, ext3, and ext4 filesystems
+created on older versions of Red Hat may not automatically have ACL support enabled.</p>
+<p>To verify whether an ext2/ext3/ext4 filesystem has the acl mount option enabled
+by default on a partition device such as /dev/sda1, run the command <strong>tune2fs -l/dev/sda1</strong>.</p>
+<p>If you want to enable ACL support on a filesystem that does not have the acl mount
+option configured, you can remount the existing partition appropriately.
+For example, we can remount the /home partition with ACL using the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="o">-</span><span class="n">o</span> <span class="n">remount</span> <span class="o">-</span><span class="n">o</span> <span class="n">acl</span> <span class="o">/</span><span class="n">home</span>
+</pre></div>
+</div>
+<p>To make sure this is the way /home is mounted on the next reboot, edit /etc/fstab.
+Based on the previous command, the associated line might read as follows if /home is formatted with ext4:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda3</span>   <span class="o">/</span><span class="n">home</span>   <span class="n">ext4</span>   <span class="n">defaults</span><span class="p">,</span><span class="n">acl</span>   <span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>Once the change is made to /etc/fstab, you can activate it with the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mount</span> <span class="o">-</span><span class="n">o</span> <span class="n">remount</span> <span class="o">/</span><span class="n">home</span>
+</pre></div>
+</div>
+<p>To confirm that the /home directory is mounted with the acl option, run the mount command alone, without switches or options.
+You should see acl in the output, similar to what’s shown here:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">sda3</span> <span class="n">on</span> <span class="o">/</span><span class="n">home</span> <span class="nb">type</span> <span class="n">ext4</span> <span class="p">(</span><span class="n">rw</span><span class="p">,</span><span class="n">acl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now you can start working with ACL commands to set access control lists on desired
+files and directories.</p>
+</div>
+<div class="section" id="manage-acls-on-a-file">
+<h2>Manage ACLs on a File<a class="headerlink" href="#manage-acls-on-a-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">getfacl</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+<span class="c1"># file: acltest/testfile</span>
+<span class="c1"># owner: root</span>
+<span class="c1"># group: root</span>
+<span class="n">user</span><span class="p">::</span><span class="n">rw</span><span class="o">-</span>
+<span class="n">group</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+<span class="n">other</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+</pre></div>
+</div>
+<p>Set ACL for a user</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">m</span> <span class="n">u</span><span class="p">:</span><span class="n">michael</span><span class="p">:</span><span class="n">rwx</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">getfacl</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+<span class="c1"># file: acltest/testfile</span>
+<span class="c1"># owner: root</span>
+<span class="c1"># group: root</span>
+<span class="n">user</span><span class="p">::</span><span class="n">rw</span><span class="o">-</span>
+<span class="n">user</span><span class="p">:</span><span class="n">michael</span><span class="p">:</span><span class="n">rwx</span>
+<span class="n">group</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+<span class="n">mask</span><span class="p">::</span><span class="n">rwx</span>
+<span class="n">other</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+</pre></div>
+</div>
+<p>Set ACL for a group</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">m</span> <span class="n">g</span><span class="p">:</span><span class="n">users</span><span class="p">:</span><span class="n">r</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<p>Remove ACLs for a user</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">x</span> <span class="n">u</span><span class="p">:</span><span class="n">michael</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<p>Remove all permissions for a user</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">m</span> <span class="n">u</span><span class="p">:</span><span class="n">michael</span><span class="p">:</span><span class="o">-</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<p>Remove all ACLs from a file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">b</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">getfacl</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+<span class="c1"># file: acltest/testfile</span>
+<span class="c1"># owner: root</span>
+<span class="c1"># group: root</span>
+<span class="n">user</span><span class="p">::</span><span class="n">rw</span><span class="o">-</span>
+<span class="n">group</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+<span class="n">other</span><span class="p">::</span><span class="n">r</span><span class="o">--</span>
+</pre></div>
+</div>
+<p>One slightly dangerous option relates to other users.
+For example, the command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">m</span> <span class="n">o</span><span class="p">:</span><span class="n">rwx</span> <span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<p>Sometimes, you may want to apply such ACLs to all files in a directory.
+In that case, the <strong>-R</strong> switch can be used to apply changes recursively:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">R</span> <span class="o">-</span><span class="n">m</span> <span class="n">u</span><span class="p">:</span><span class="n">michael</span><span class="p">:</span><span class="n">rx</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gans</span><span class="o">/</span><span class="n">acltest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-acls">
+<h2>Default ACLs<a class="headerlink" href="#default-acls" title="Permalink to this headline">¶</a></h2>
+<p>Directories can also contain one or more default ACLs. The concept of a default ACL is
+similar to a regular ACL entry, with the difference that a default ACL does not have any
+effect on the current directory permissions, but it is inherited by the files created within
+the directory.</p>
+<p>As an example, if you want all new files and directories in /home/examprep to inherit
+an ACL that grants read and execute permissions to the user michael, you can run the
+following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="n">u</span><span class="p">:</span><span class="n">michael</span><span class="p">:</span><span class="n">rx</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gans</span><span class="o">/</span><span class="n">acltest</span>
+</pre></div>
+</div>
+<p>The -d option in the preceding command specifies that the current operation applies to
+a default ACL.</p>
+</div>
+<div class="section" id="acl-and-masks">
+<h2>ACL and Masks<a class="headerlink" href="#acl-and-masks" title="Permalink to this headline">¶</a></h2>
+<p>The mask associated with an ACL limits the permissions available on a file for named
+users and groups, and for the group owner. The mask shown in Figure 4-2 is rwx, which
+means there are no limits. If it were set to r, then the only permissions that could be granted
+with a command such as setfacl is read. To change the mask on the TheAnswers file to read-
+only, run the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">setfacl</span> <span class="o">-</span><span class="n">m</span> <span class="n">mask</span><span class="p">:</span><span class="n">r</span><span class="o">--</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">gans</span><span class="o">/</span><span class="n">acltest</span><span class="o">/</span><span class="n">testfile</span>
+</pre></div>
+</div>
+<p>In other words, with a mask of <strong>r–</strong>, you can try to provide other users with all the
+privileges in the world. But all that can be set with that mask is read privileges.</p>
+<p><strong>The mask has an effect only on the group owner and on named users and groups.</strong>
+<strong>It does not have any effect on the user owner of the file and on the “other” permission group.</strong></p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="firewall.html" class="btn btn-neutral float-right" title="firewall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Herwig Gans.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
