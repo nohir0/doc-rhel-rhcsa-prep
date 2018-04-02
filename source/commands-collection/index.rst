@@ -3,6 +3,19 @@ Commands Collection
 #####################
 
 
+.. toctree::
+   :maxdepth: 2
+   :titlesonly:
+   :glob:
+   :hidden:
+
+   dd
+   yum
+   rpm
+   mount
+   ssh
+
+
 Find Out Linux Distribution And Version
 -----------------------------------------
 
@@ -21,16 +34,3 @@ Find Out Linux Distribution And Version
    # redhat cat /etc/redhat-release
    CentOS Linux release 7.4.1708 (Core)
 
-
-
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
-   :glob:
-   :hidden:
-
-   dd
-   yum
-   rpm
-   mount
-   ssh

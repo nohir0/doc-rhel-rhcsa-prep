@@ -36,7 +36,17 @@ The enforcing and disabled modes are self-explanatory.
    drwxr-xr-x. gans gans system_u:object_r:user_home_t:s0 Templates
    drwxr-xr-x. gans gans system_u:object_r:user_home_t:s0 Videos
 
-SELinux in permissive mode means that any SELinux rules that are violated are logged, but the violation does not stop any action.
+
+Equivalent commands for processes, network connections
+
+::
+
+   ps -Zaux
+   ss -Z
+   netstat -Z
+
+
+SELinux in **permissive** mode means that any SELinux rules that are violated are logged, but the violation does not stop any action.
 If you want to change the default SELinux mode, change the SELINUX directive in the **/etc/selinux/config** file.
 The next time you reboot, the changes are applied to the system.
 
@@ -84,8 +94,74 @@ are straightforward:
 To make this change permanent, you’ll have to modify the SELINUX variable in the **/etc/selinux/config** file.
 
 
-Configure Regular Users for SELinux
------------------------------------
+Setting Context Types (Essentials for RHCSA !)
+-----------------------------------------------
+
+There are two commands to set context type:
+   * semanage - This is the command you want to use
+   * chcon - Use it only in specific cases - **should normally be avoided** - does not survive file system is relabeled !
+
+To set context using semanage, you need to find out the correct context.
+The easy way is to look for default context settings for alreasy existing items (e.g. files / directories)
+
+::
+
+   ls -Z /var/www
+   drwxr-xr-x. root root system_u:object_r:httpd_sys_script_exec_t:s0 cgi-bin
+   drwxr-xr-x. root root system_u:object_r:httpd_sys_content_t:s0 html
+
+To set this type for html directory to any new directory that should be accessible by the Apache web server,
+use the following command:
+
+::
+
+   semanage fcontext -a -t httpd_sys_content_t "/mydir(/.*)?"
+
+The option **-a** is used to add a context type.
+The option **-t** is used to change a context type (as opposed to user and role)
+
+Setting the context this way is not enough, because it writes it only to the policy and not to the file system.
+To complete the task, you need to apply the policy to the file system:
+
+::
+
+   restorecon -R -v /mydir
+
+It is not easy to remember the **semanage fcontext** command.
+**There is a good man page for it - man semanage-fcontext - with useful examples at the bottom !**
+
+
+Finding the Context Type You Need
+----------------------------------
+
+This is one of the challenging parts of setting SELINUX contexts.
+Roughly, there are three approaches:
+
+   * Look at the default environment
+   * Read the configuration files
+   * Use **man -k _selinux** to find SELinux-specific man pages for your service
+
+The **man -k _selinux** pages are not installed by default.
+To install them you need the package **policycoreutils-devel** and then another task:
+
+::
+
+   sepolicy manpage -a -p /usr/share/man/man8
+
+This is an essential skill - you should master it before going to the exam:
+
+   1. **man -k _selinux** - it will only provide one or two man pages
+   2. **yum whatprovides \*/sepolicy**
+   3. **yum install policycoreutils-devel**
+   4. **sepolicy manpage -a -p /usr/share/man/man8**
+   5. **man -k _selinux** - you'll see no changes
+   6. **mandb**
+   7. This takes some time, after that a lot more man pages should appear with the man command
+   8. **man -k _selinux | grep http** as example for finding the correct context
+
+
+Configure Regular Users for SELinux (not needed for RHCSA !)
+--------------------------------------------------------------
 To review the status of current SELinux users, run the semanage login -l command
 
 ::
@@ -159,12 +235,12 @@ as su and sudo. The following command reverses the process:
 Manage SELinux Boolean Settings
 -------------------------------
 
-Most SELinux settings are boolean—in other words, they’re activated and deactivated by
+Most SELinux settings are boolean- in other words, they’re activated and deactivated by
 setting them to 1 or 0, respectively. Once set, the booleans can be retrieved from the
 /sys/fs/selinux/booleans directory. One simple example is selinuxuser_ping, which is
 normally set to 1, which allows users to run the ping and traceroute commands.
 
-These settings can be read with the getsebool and modified with the setsebool commands.
+These settings can be read with the **getsebool -a** and modified with the **setsebool** commands.
 For example, the following output from the getsebool user_exec_content command confirms
 that SELinux allows users to execute scripts either in their home directories or from the /tmp
 directory:
@@ -181,6 +257,12 @@ For example, the following command disables the noted boolean until the system i
 
 A full list of available booleans is available in the output to the **getsebool -a** command.
 For more information on each boolean, run the **semanage boolean -l** command.
+
+::
+
+   getsebool -a
+   semanage boolean -l
+
 
 
 List and Identify SELinux File Contexts
@@ -255,6 +337,19 @@ and use **restorecon** to change file contexts.
 
 Restore SELinux File Contexts
 -------------------------------
+
+How are context settings applied?
+   * If a new file is created, it inherits the context settings from the parent directory
+   * If a file is copied to a directory, this is considered a new file, so it inherits the context settings from the parent directory
+   * If a file is moved, or copied while keeping its properties (by using **cp -a**), the original file context settings of the file are applied
+
+Especially the latter of these three situations is easily fixed by using restorecon.
+It is also possible to relabel the entire file system - this could be a good idea.
+
+::
+
+   restorecon -Rv /
+
 
 Default contexts are configured in /etc/selinux/targeted/contexts/files/file_contexts. If you
 make a mistake and want to restore the original SELinux settings for a file, the restorecon

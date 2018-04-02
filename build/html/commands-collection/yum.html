@@ -105,6 +105,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html">kickstart</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#how-to-start-installation-with-kickstart-file">How to start installation with kickstart file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#important-kickstart-file-options">Important kickstart file options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../installation/kickstart.html#working-example-for-kvm-based-kickstart-installation">Working example for KVM based kickstart installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../installation/kickstart.html#indices-and-tables">Indices and tables</a></li>
@@ -120,7 +121,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../installation/index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../networking/index.html">Networking</a><ul>
@@ -133,7 +133,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../networking/network-commands.html">network-commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#ifconfig-arp-netstat-route-are-obsolete">ifconfig | arp | netstat | route are “obsolete”</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-manager">Network Manager</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#configure-manipulate-network-adapter">Configure | Manipulate Network Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-manager">Network Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#graphical-networking-user-interfaces">Graphical Networking User Interfaces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../networking/network-commands.html#network-connection-directives">Network Connection Directives</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../networking/network-commands.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
@@ -156,7 +159,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../networking/index.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../applications/index.html">Applications</a><ul>
@@ -170,9 +172,10 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">2. ssh</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">2.1. ssh tunnel</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#indices-and-tables">2.1.1. Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/ssh.html">ssh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#ssh-tunnel">ssh tunnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/ssh.html#basic-encrypted-communication">Basic Encrypted Communication</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/ssh.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 </ul>
@@ -192,15 +195,16 @@
 <li class="toctree-l3"><a class="reference internal" href="../applications/vncserver.html#indices-and-tables">4.1. Indices and tables</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../applications/kvm.html">5. kvm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">5.1. Mounting installation media for VM installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">5.2. Important Files and directories</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-commands">5.3. Important commands</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install">5.4. virt-install</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">5.5. Delete a VM from command line</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virsh">5.6. virsh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-clone">5.7. virt-clone</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#indices-and-tables">5.7.1. Indices and tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../applications/kvm.html">kvm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#mounting-installation-media-for-vm-installation">Mounting installation media for VM installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-files-and-directories">Important Files and directories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#important-commands">Important commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install">virt-install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-install-with-kickstart-file">virt-install with kickstart file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#delete-a-vm-from-command-line">Delete a VM from command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virsh">virsh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../applications/kvm.html#virt-clone">virt-clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../applications/kvm.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 </li>
 </ul>
@@ -218,6 +222,7 @@
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">yum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#find-rpm-package-containing-a-certain-command">Find RPM package containing a certain command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#which-packages-are-installed-within-the-base-package-group">Which packages are installed within the <strong>base</strong> package group?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-to-create-a-local-repository-copy-from-cdrom-iso-e-g-on-web-server">How to create a local repository copy from CDROM / ISO e.g. on web server</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#epel-extra-packages-for-enterprise-linux">EPEL - Extra Packages for Enterprise Linux</a></li>
@@ -245,14 +250,52 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../kernel/index.html">Kernel Topics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#verify-and-load-kernel-modules">Verify And Load Kernel Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernel/index.html#load-kernel-module-persistent">Load Kernel Module Persistent</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../security/index.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../security/permissions.html">permissions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#chmod">chmod</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#special-permission-bits">Special Permission Bits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#file-attributes">File Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#umask">UMASK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#access-control-lists">Access Control Lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#manage-acls-on-a-file">Manage ACLs on a File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#default-acls">Default ACLs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/permissions.html#acl-and-masks">ACL and Masks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security/firewall.html">firewall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security/firewall.html#the-firewalld-service">The firewalld Service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security/encryption.html">encryption</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security/encryption.html#basic-encrypted-communication">Basic Encrypted Communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../security/selinux.html">selinux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#basic-features-of-selinux">Basic Features of SELinux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#selinux-status">SELinux Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#basic-selinux-configuration-and-settings">Basic SELINUX Configuration and Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#setting-context-types-essentials-for-rhcsa">Setting Context Types (Essentials for RHCSA !)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#finding-the-context-type-you-need">Finding the Context Type You Need</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#configure-regular-users-for-selinux-not-needed-for-rhcsa">Configure Regular Users for SELinux (not needed for RHCSA !)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#manage-selinux-boolean-settings">Manage SELinux Boolean Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#list-and-identify-selinux-file-contexts">List and Identify SELinux File Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#restore-selinux-file-contexts">Restore SELinux File Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#identify-selinux-process-contexts">Identify SELinux Process Contexts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#diagnose-and-address-selinux-policy-violations">Diagnose and Address SELinux Policy Violations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../security/selinux.html#the-gui-selinux-administration-tool">The GUI SELinux Administration Tool</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../help/Help.html">Help</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../help/Help.html#further-help">Further Help</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../help/Help.html#indices-and-tables">Indices and tables</a></li>
 </ul>
 
             
@@ -320,6 +363,12 @@
             
   <div class="section" id="yum">
 <h1>yum<a class="headerlink" href="#yum" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="find-rpm-package-containing-a-certain-command">
+<h2>Find RPM package containing a certain command<a class="headerlink" href="#find-rpm-package-containing-a-certain-command" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">yum</span> <span class="n">whatprovides</span> <span class="o">*/</span><span class="n">semanage</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="which-packages-are-installed-within-the-base-package-group">
 <h2>Which packages are installed within the <strong>base</strong> package group?<a class="headerlink" href="#which-packages-are-installed-within-the-base-package-group" title="Permalink to this headline">¶</a></h2>
 <p>Use yum group info:</p>

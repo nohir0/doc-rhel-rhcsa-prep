@@ -3,6 +3,15 @@ yum
 ====
 
 
+Find RPM package containing a certain command
+-----------------------------------------------
+
+::
+
+   yum whatprovides */semanage
+
+
+
 Which packages are installed within the **base** package group?
 -------------------------------------------------------------------
 
